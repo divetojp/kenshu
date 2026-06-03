@@ -1,0 +1,74 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ルートの .md を docs/ にコピー（_Sidebar.md, REVIEW-HANDOFF.md は除外）
+      - name: Prepare docs directory
+        run: |
+          mkdir -p docs
+          for f in *.md; do
+            case "$f" in
+              _Sidebar.md|REVIEW-HANDOFF.md) ;;
+              Home.md) cp "$f" docs/index.md ;;
+              *) cp "$f" "docs/$f" ;;
+            esac
+          done
+          # カスタムアセットはすでに docs/ に存在しているので上書きしない
+          # (javascripts/, stylesheets/ はリポジトリから checkout 済み)
+
+      # Wiki スタイルのリンク [text](PageName) → [text](PageName.md) に変換
+      # ただし http(s)://, #アンカー, すでに拡張子ありのリンクは変換しない
+      - name: Fix wiki-style internal links
+        run: |
+          python3 - <<'PYEOF'
+          import re, glob
+
+          LINK_RE = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+
+          def fix_link(m):
+              text, target = m.group(1), m.group(2)
+              # 変換しない条件: URL, アンカー, すでに拡張子あり, パス区切りあり
+              if (target.startswith(('http://', 'https://', '#', '/'))
+                      or '.' in target.split('/')[-1]
+                      or target.startswith('..')):
+                  return m.group(0)
+              return f'[{text}]({target}.md)'
+
+          for path in glob.glob('docs/*.md'):
+              text = open(path, encoding='utf-8').read()
+              fixed = LINK_RE.sub(fix_link, text)
+              # Home.md は index.md にリネームされているのでリンクも更新
+              fixed = fixed.replace('(Home.md)', '(index.md)')
+              if fixed != text:
+                  open(path, 'w', encoding='utf-8').write(fixed)
+                  print(f'Fixed links: {path}')
+          PYEOF
+
+      - name: Build and deploy
+        run: mkdocs gh-deploy --force --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

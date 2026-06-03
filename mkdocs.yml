@@ -1,0 +1,178 @@
+site_name: OTA テックガイド
+site_url: https://ohmitechacademy.github.io/tech-guide/
+site_description: 大学生のためのソフトウェアエンジニアリング・機械学習テックガイド
+site_author: OHMITechAcademy
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: ja
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切替
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切替
+  font:
+    text: Noto Sans JP
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+plugins:
+  - search:
+      lang: ja
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.mark
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - attr_list
+  - md_in_html
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+  - stylesheets/extra.css
+
+nav:
+  - ホーム: index.md
+  - はじめに:
+    - 文章の書き方: 文章の書き方.md
+
+  - 開発環境・ツール:
+    - ターミナル: ターミナル.md
+    - 環境構築: 環境構築.md
+    - Linux基礎: Linux基礎.md
+    - Git: Git.md
+    - GitHub: GitHub.md
+    - Markdown: Markdown.md
+
+  - 数学・統計:
+    - 離散数学: 離散数学.md
+    - 線形代数: 線形代数.md
+    - 微分・最適化基礎: 微分・最適化基礎.md
+    - 確率・統計基礎: 確率・統計基礎.md
+    - ベイズ理論: ベイズ理論.md
+    - 回帰分析: 回帰分析.md
+    - 多変量解析: 多変量解析.md
+    - 決定木: 決定木.md
+    - サポートベクターマシン: サポートベクターマシン.md
+    - 機械学習理論: 機械学習理論.md
+
+  - プログラミング言語:
+    - Python基礎: Python.md
+    - 関数型プログラミング: 関数型プログラミング.md
+    - 正規表現: 正規表現.md
+    - JavaScript基礎: JavaScript.md
+    - TypeScript: TypeScript.md
+    - npm / Node.js: npm.md
+    - C言語入門: C言語入門.md
+
+  - Web・フロントエンド:
+    - HTML / CSS: HTML-CSS.md
+    - Astro: Astro.md
+
+  - データベース:
+    - データベース基礎: データベース基礎.md
+    - データベース詳解: データベース詳解.md
+    - データベース×Web: データベース-Web.md
+    - SQL実践問題: SQL実践問題.md
+
+  - インフラ・クラウド・ネットワーク:
+    - ネットワーク基礎: ネットワーク基礎.md
+    - ネットワーク詳解: ネットワーク詳解.md
+    - コンピュータ基礎: コンピュータ基礎.md
+    - OS詳解: OS詳解.md
+    - 並列・並行処理: 並列・並行処理.md
+    - Docker: Docker.md
+    - Cloudflare: Cloudflare.md
+    - CI/CD: CI-CD.md
+    - クラウド・インフラ: クラウド-インフラ.md
+    - 運用・障害対応: 運用-障害対応.md
+    - システム設計: システム設計.md
+
+  - セキュリティ:
+    - セキュリティ基礎: セキュリティ.md
+    - セキュリティ詳解: セキュリティ詳解.md
+
+  - バックエンド・API:
+    - FastAPI: FastAPI.md
+    - Web / API設計: WebAPI設計.md
+    - テスト方法論: テスト方法論.md
+
+  - 開発プロセス:
+    - アジャイル開発: アジャイル開発.md
+
+  - ソフトウェア設計・CS理論:
+    - オブジェクト指向: オブジェクト指向.md
+    - ソフトウェア設計: ソフトウェア設計.md
+    - コンパイラの仕組み: コンパイラの仕組み.md
+    - アルゴリズム・データ構造: アルゴリズム-データ構造.md
+    - コーディングテスト対策: コーディングテスト対策.md
+
+  - データサイエンス:
+    - NumPy / pandas: pandas-sklearn.md
+    - データ可視化: データ可視化.md
+    - Streamlit: Streamlit.md
+    - 特徴量エンジニアリング: 特徴量エンジニアリング.md
+
+  - データエンジニアリング:
+    - データエンジニアリング: データエンジニアリング.md
+    - データパイプライン: データパイプライン.md
+
+  - 機械学習・深層学習・MLOps:
+    - 教師あり学習: 教師あり学習.md
+    - 教師なし学習: 教師なし学習.md
+    - モデル評価・チューニング: モデル評価-チューニング.md
+    - 深層学習入門: 深層学習入門.md
+    - PyTorch入門: PyTorch入門.md
+    - CNN（画像認識）: CNN.md
+    - RNN・時系列: RNN-時系列.md
+    - NLP基礎: NLP基礎.md
+    - LLM活用入門: LLM活用入門.md
+    - Hugging Face入門: HuggingFace入門.md
+    - 実験管理: 実験管理.md
+    - 機械学習基盤: 機械学習基盤.md
+    - MLデプロイ: MLデプロイ.md
