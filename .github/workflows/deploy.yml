@@ -68,7 +68,11 @@ jobs:
                   print(f'Fixed links: {path}')
           PYEOF
 
-      - name: Build and deploy
-        run: mkdocs gh-deploy --force --clean
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run: zensical build --clean
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
