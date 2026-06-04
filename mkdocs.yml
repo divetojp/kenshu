@@ -211,11 +211,14 @@ nav:
     - バックエンド・API:
       - Python 基礎: Python.md
       - Python 中級: Python中級.md
+      - Go 言語入門: Go言語入門.md
       - スクレイピング（Webデータ収集）: スクレイピング.md
       - 正規表現: 正規表現.md
       - Web / API設計: WebAPI設計.md
+      - OpenAPI / Swagger: OpenAPI-Swagger.md
       - Python × Web API（FastAPI）: FastAPI.md
       - GraphQL: GraphQL.md
+      - gRPC: gRPC.md
       - WebSocket・リアルタイム通信: WebSocket.md
       - テスト方法論: テスト方法論.md
     - 設計・プロセス:
@@ -250,7 +253,9 @@ nav:
       - 並列・並行処理: 並列・並行処理.md
     - クラウド・運用:
       - クラウド・インフラ: クラウド-インフラ.md
+      - クラウドサービス実践（AWS / GCP）: クラウドサービス実践.md
       - Docker: Docker.md
+      - リバースプロキシ（Nginx・Caddy・Traefik）: リバースプロキシ.md
       - Kubernetes: Kubernetes.md
       - CI/CD: CI-CD.md
       - Terraform / IaC: Terraform.md
@@ -271,6 +276,8 @@ nav:
     - Web アプリケーション:
       - Webアプリの攻撃と防御: セキュリティ詳解.md
       - OWASP Top 10: OWASP-Top10.md
+    - インフラ・クラウドセキュリティ:
+      - コンテナセキュリティ（Docker・Kubernetes）: コンテナセキュリティ.md
     - 制度・倫理:
       - 情報セキュリティ法規と制度: 情報セキュリティ法規.md
       - データ倫理・AI倫理: データ倫理.md
