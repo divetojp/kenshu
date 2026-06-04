@@ -162,6 +162,7 @@ nav:
       - データベース詳解: データベース詳解.md
       - データベース×Web: データベース-Web.md
       - SQL実践問題: SQL実践問題.md
+      - NoSQL・Redis: NoSQL-Redis.md
 
   - インフラ・開発:
     - CS基礎:
@@ -181,6 +182,7 @@ nav:
       - Kubernetes: Kubernetes.md
       - CI/CD: CI-CD.md
       - Cloudflare: Cloudflare.md
+      - モニタリング・可観測性: モニタリング-可観測性.md
       - 運用・障害対応: 運用-障害対応.md
       - システム設計: システム設計.md
 
