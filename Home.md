@@ -118,6 +118,8 @@
 | ページ | 内容 |
 |--------|------|
 | [NumPy / pandas](pandas-sklearn) | ndarray・DataFrame 操作・データ前処理 |
+| [Polars](Polars) | pandas の高速代替・列指向・Lazy API・Apache Arrow |
+| [DuckDB](DuckDB) | ローカル分析 SQL・Parquet 直読み・pandas/Polars 統合 |
 | [探索的データ分析（EDA）](EDA) | データ概観・欠損・分布・相関の確認ワークフロー |
 | [R言語入門](R言語) | ggplot2・tidyverse・統計解析・Python との使い分け |
 | [A/Bテスト・実験設計](ABテスト) | サンプルサイズ計算・多重比較・ベイズ A/Bテスト |
@@ -182,8 +184,15 @@
 | [NLP基礎](NLP基礎) | トークナイズ・TF-IDF・Word2Vec |
 | [日本語 NLP 実践](日本語NLP) | MeCab・SudachiPy・形態素解析・日本語 BERT・GiNZA |
 | [Transformer・Attention](Transformer-Attention) | Q/K/V・Multi-Head・Positional Encoding・BERT vs GPT |
+| [自己教師あり学習（SSL）](自己教師あり学習) | SimCLR・BYOL・DINO・MAE・GPT 事前学習の仕組み |
+| [マルチモーダルAI](マルチモーダルAI) | CLIP・LLaVA・Q-Former・ゼロショット分類 |
+| [グラフニューラルネットワーク（GNN）](グラフニューラルネットワーク) | GCN・GraphSAGE・GAT・分子設計・SNS 解析 |
+| [メタ学習・Few-shot Learning](メタ学習) | Prototypical Networks・MAML・In-Context Learning |
 | [生成モデル（GAN・Diffusion）](生成モデル) | GAN・VAE・Diffusion・Stable Diffusion の仕組み |
+| [説明可能AI（XAI）](説明可能AI) | SHAP・LIME・Grad-CAM・特徴量重要度 |
+| [ファインチューニング詳解](ファインチューニング詳解) | LoRA・QLoRA・RLHF・DPO・Instruction Tuning |
 | [LLM活用入門](LLM活用入門) | プロンプトエンジニアリング・RAG・API活用 |
+| [LLMエージェント・RAG詳解](LLMエージェント-RAG) | RAG・Function Calling・ReAct・マルチエージェント |
 | [Hugging Face入門](HuggingFace入門) | Pipeline・Tokenizer・ファインチューニング |
 
 #### MLOps
@@ -194,6 +203,7 @@
 | [実験管理](実験管理) | MLflow / wandb・パラメータ記録・モデルレジストリ |
 | [MLデプロイ](MLデプロイ) | sklearn → FastAPI → Docker → クラウド公開 |
 | [機械学習基盤](機械学習基盤) | 推論サービス・バッチ処理・監視・再学習 |
+| [GPU・CUDA入門](GPU-CUDA入門) | CPU vs GPU・CUDA・混合精度・マルチGPU・メモリ管理 |
 
 ---
 
@@ -248,11 +258,13 @@
 | [SQL 実践問題（Window関数・CTE）](SQL実践問題) | RANK/LAG/LEAD・WITH 句・採用選考頻出クエリ |
 | [データベース × Web（SQLAlchemy・FastAPI）](データベース-Web) | ORM・マイグレーション・FastAPI との統合 |
 
-**NoSQL**
+**NoSQL・検索**
 
 | ページ | 内容 |
 |--------|------|
 | [NoSQL・Redis](NoSQL-Redis) | KV/ドキュメント/グラフ DB・Redis キャッシュ・MongoDB |
+| [Elasticsearch・全文検索](Elasticsearch) | 転置インデックス・BM25・ハイブリッド検索・kNN |
+| [ベクトルデータベース](ベクトルデータベース) | HNSW・IVF・Chroma・Qdrant・RAG の基盤 |
 
 ---
 
@@ -266,6 +278,7 @@
 | [コンパイラの仕組み](コンパイラの仕組み) | 字句解析・構文解析・AST・最適化 |
 | [アルゴリズム・データ構造](アルゴリズム-データ構造) | 計算量・配列・ハッシュ・木・探索・ソート |
 | [コーディングテスト対策](コーディングテスト対策) | 二分探索・BFS/DFS・DP・AtCoder 攻略 |
+| [量子コンピューティング入門](量子コンピューティング入門) | 量子ビット・量子ゲート・Grover・Shor・NISQ・Qiskit |
 
 #### システム・ネットワーク
 
@@ -324,6 +337,15 @@
 |--------|------|
 | [情報セキュリティ法規と制度](情報セキュリティ法規) | 不正アクセス禁止法・個人情報保護法・ISMS・相談窓口 |
 | [データ倫理・AI倫理](データ倫理) | 個人情報・アルゴリズムバイアス・公平性・説明可能 AI |
+
+---
+
+### 応用・新興分野
+
+| ページ | 内容 |
+|--------|------|
+| [バイオインフォマティクス](バイオインフォマティクス) | 配列アライメント・RNA-seq・AlphaFold・scRNA-seq |
+| [量子コンピューティング入門](量子コンピューティング入門) | 量子ビット・量子ゲート・Grover・Shor・NISQ |
 
 ---
 

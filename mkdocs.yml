@@ -122,6 +122,8 @@ nav:
   - 機械学習・AI・データ:
     - データサイエンス:
       - NumPy / pandas 基礎: pandas-sklearn.md
+      - Polars（高速DataFrame）: Polars.md
+      - DuckDB（ローカル分析SQL）: DuckDB.md
       - 探索的データ分析（EDA）: EDA.md
       - R言語入門: R言語.md
       - データ可視化: データ可視化.md
@@ -167,14 +169,22 @@ nav:
       - NLP基礎: NLP基礎.md
       - 日本語 NLP 実践: 日本語NLP.md
       - Transformer・Attention: Transformer-Attention.md
+      - 自己教師あり学習（SSL）: 自己教師あり学習.md
+      - マルチモーダルAI（CLIP・LLaVA）: マルチモーダルAI.md
+      - グラフニューラルネットワーク（GNN）: グラフニューラルネットワーク.md
+      - メタ学習・Few-shot Learning: メタ学習.md
       - 生成モデル（GAN・VAE・Diffusion）: 生成モデル.md
+      - 説明可能AI（XAI・SHAP・Grad-CAM）: 説明可能AI.md
+      - ファインチューニング詳解（LoRA・DPO）: ファインチューニング詳解.md
       - LLM 活用入門: LLM活用入門.md
+      - LLM エージェント・RAG詳解: LLMエージェント-RAG.md
       - Hugging Face 入門: HuggingFace入門.md
     - MLOps:
       - MLOps概要: MLOps概要.md
       - 実験管理（MLflow / wandb）: 実験管理.md
       - 機械学習モデルのデプロイ: MLデプロイ.md
       - 機械学習基盤: 機械学習基盤.md
+      - GPU・CUDA入門: GPU-CUDA入門.md
 
   - Web・サーバー・DB:
     - フロントエンド:
@@ -209,8 +219,10 @@ nav:
         - インデックス・トランザクション・正規化: データベース詳解.md
         - SQL 実践問題（Window関数・CTE）: SQL実践問題.md
         - データベース × Web（SQLAlchemy・FastAPI）: データベース-Web.md
-      - NoSQL:
+      - NoSQL・検索:
         - NoSQL・Redis: NoSQL-Redis.md
+        - Elasticsearch・全文検索: Elasticsearch.md
+        - ベクトルデータベース: ベクトルデータベース.md
 
   - インフラ・開発:
     - CS基礎:
@@ -218,6 +230,7 @@ nav:
       - コンパイラの仕組み: コンパイラの仕組み.md
       - アルゴリズム・データ構造: アルゴリズム-データ構造.md
       - コーディングテスト対策: コーディングテスト対策.md
+      - 量子コンピューティング入門: 量子コンピューティング入門.md
     - システム・ネットワーク:
       - コンピュータ基礎: コンピュータ基礎.md
       - OS詳解: OS詳解.md
@@ -235,6 +248,9 @@ nav:
       - 運用・障害対応: 運用-障害対応.md
       - システム設計: システム設計.md
       - マイクロサービス設計: マイクロサービス.md
+
+  - 応用・新興分野:
+    - バイオインフォマティクス: バイオインフォマティクス.md
 
   - セキュリティ・倫理:
     - 基礎・身近な脅威:
