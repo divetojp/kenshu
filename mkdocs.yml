@@ -100,6 +100,7 @@ nav:
     - 機械学習基礎:
       - 教師あり学習: 教師あり学習.md
       - 教師なし学習: 教師なし学習.md
+      - 強化学習: 強化学習.md
       - 機械学習理論: 機械学習理論.md
       - 特徴量エンジニアリング: 特徴量エンジニアリング.md
       - 決定木: 決定木.md
@@ -121,6 +122,7 @@ nav:
       - CNN（画像認識）: CNN.md
       - RNN・時系列: RNN-時系列.md
       - NLP基礎: NLP基礎.md
+      - Transformer・Attention: Transformer-Attention.md
       - LLM活用入門: LLM活用入門.md
       - Hugging Face入門: HuggingFace入門.md
     - データサイエンス:
@@ -176,6 +178,7 @@ nav:
     - クラウド・運用:
       - クラウド・インフラ: クラウド-インフラ.md
       - Docker: Docker.md
+      - Kubernetes: Kubernetes.md
       - CI/CD: CI-CD.md
       - Cloudflare: Cloudflare.md
       - 運用・障害対応: 運用-障害対応.md
