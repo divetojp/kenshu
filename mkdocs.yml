@@ -103,6 +103,7 @@ nav:
       - 機械学習理論: 機械学習理論.md
       - 特徴量エンジニアリング: 特徴量エンジニアリング.md
       - 決定木: 決定木.md
+      - アンサンブル学習: アンサンブル学習.md
       - 回帰分析: 回帰分析.md
       - サポートベクターマシン: サポートベクターマシン.md
       - モデル評価・チューニング: モデル評価-チューニング.md
@@ -139,6 +140,7 @@ nav:
       - HTML / CSS: HTML-CSS.md
       - JavaScript基礎: JavaScript.md
       - TypeScript: TypeScript.md
+      - React: React.md
       - npm / Node.js: npm.md
       - Astro: Astro.md
     - バックエンド・API:
@@ -146,6 +148,7 @@ nav:
       - 正規表現: 正規表現.md
       - Web / API設計: WebAPI設計.md
       - FastAPI: FastAPI.md
+      - 認証・認可: 認証・認可.md
       - テスト方法論: テスト方法論.md
     - 設計・プロセス:
       - オブジェクト指向: オブジェクト指向.md
@@ -181,3 +184,4 @@ nav:
   - セキュリティ:
     - セキュリティ基礎: セキュリティ.md
     - セキュリティ詳解: セキュリティ詳解.md
+    - OWASP Top 10: OWASP-Top10.md
