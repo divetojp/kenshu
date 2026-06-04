@@ -115,6 +115,8 @@
 | [NumPy / pandas](pandas-sklearn) | ndarray・DataFrame 操作・データ前処理 |
 | [探索的データ分析（EDA）](EDA) | データ概観・欠損・分布・相関の確認ワークフロー |
 | [R言語入門](R言語) | ggplot2・tidyverse・統計解析・Python との使い分け |
+| [A/Bテスト・実験設計](ABテスト) | サンプルサイズ計算・多重比較・ベイズ A/Bテスト |
+| [空間データ分析](空間データ分析) | GeoPandas・Folium・空間結合・Moran's I |
 | [データ可視化](データ可視化) | matplotlib・seaborn・plotly |
 | [時系列分析](時系列分析) | ARIMA・SARIMA・Prophet・定常性・移動平均 |
 | [Streamlit](Streamlit) | Python だけで作るインタラクティブ Web アプリ |
@@ -127,12 +129,14 @@
 |--------|------|
 | [教師あり学習](教師あり学習) | 分類・回帰の概念、アルゴリズム選択ガイド |
 | [教師なし学習](教師なし学習) | クラスタリング・次元削減・異常検知の概要 |
+| [異常検知](異常検知) | IsolationForest・LOF・Autoencoder・時系列異常検知 |
 | [強化学習](強化学習) | エージェント・報酬・Q学習・DQN・RLHF |
 | [特徴量エンジニアリング](特徴量エンジニアリング) | 欠損処理・エンコーディング・スケーリング・Pipeline |
 | [回帰分析](回帰分析) | 線形回帰・ロジスティック回帰・R²・正則化 |
 | [決定木](決定木) | CART・ジニ不純度・情報利得・剪定 |
 | [アンサンブル学習](アンサンブル学習) | RandomForest・GradientBoosting・XGBoost・スタッキング |
 | [サポートベクターマシン](サポートベクターマシン) | マージン最大化・カーネルトリック・SVC・SVR |
+| [レコメンデーションシステム](レコメンデーション) | 協調フィルタリング・行列分解・コンテンツベース |
 | [モデル評価・チューニング](モデル評価-チューニング) | 交差検証・ROC-AUC・GridSearch・Optuna |
 | [機械学習理論](機械学習理論) | 損失関数・勾配降下法・過学習・バイアス・バリアンス |
 
@@ -157,6 +161,7 @@
 | [CNN（画像認識）](CNN) | 畳み込み・プーリング・ResNet・転移学習 |
 | [RNN・時系列](RNN-時系列) | LSTM・GRU・スライディングウィンドウ |
 | [NLP基礎](NLP基礎) | トークナイズ・TF-IDF・Word2Vec |
+| [日本語 NLP 実践](日本語NLP) | MeCab・SudachiPy・形態素解析・日本語 BERT・GiNZA |
 | [Transformer・Attention](Transformer-Attention) | Q/K/V・Multi-Head・Positional Encoding・BERT vs GPT |
 | [生成モデル（GAN・Diffusion）](生成モデル) | GAN・VAE・Diffusion・Stable Diffusion の仕組み |
 | [LLM活用入門](LLM活用入門) | プロンプトエンジニアリング・RAG・API活用 |
