@@ -153,6 +153,7 @@ nav:
       - 機械学習理論: 機械学習理論.md
       - 統計的学習理論（PAC・VC次元）: 統計的学習理論.md
       - XGBoost / LightGBM 詳解: XGBoost-LightGBM詳解.md
+      - テーブルデータの深層学習（TabNet・FT-Transformer）: テーブルデータの深層学習.md
     - 次元削減・クラスタリング:
       - 多変量解析：手法の地図: 多変量解析.md
       - 主成分分析（PCA）: 主成分分析.md
@@ -205,9 +206,11 @@ nav:
       - JavaScript基礎: JavaScript.md
       - TypeScript: TypeScript.md
       - React: React.md
+      - Vue.js: Vue.js.md
       - Next.js: Next.js.md
       - npm / Node.js: npm.md
       - Astro: Astro.md
+      - WebAssembly（Wasm）: WebAssembly.md
     - バックエンド・API:
       - Python 基礎: Python.md
       - Python 中級: Python中級.md
@@ -220,6 +223,7 @@ nav:
       - GraphQL: GraphQL.md
       - gRPC: gRPC.md
       - WebSocket・リアルタイム通信: WebSocket.md
+      - WebRTC（P2P リアルタイム通信）: WebRTC.md
       - テスト方法論: テスト方法論.md
     - 設計・プロセス:
       - オブジェクト指向（OOP）: オブジェクト指向.md
