@@ -83,13 +83,13 @@ nav:
     - プログラミング入門: プログラミング入門.md
     - Excel・スプレッドシート: Excel.md
     - Jupyter Notebook / Google Colab: Jupyter.md
-    - 文章の書き方: 文章の書き方.md
+    - 文章の構造的な書き方: 文章の書き方.md
     - ターミナル: ターミナル.md
-    - Linux基礎: Linux基礎.md
+    - Linux 基礎: Linux基礎.md
     - 環境構築: 環境構築.md
     - Git: Git.md
     - GitHub: GitHub.md
-    - Markdown: Markdown.md
+    - Markdown 記法: Markdown.md
     - 論文・技術文書の読み方: 論文の読み方.md
     - 卒業研究・プロジェクトの進め方: 卒業研究.md
 
@@ -110,7 +110,7 @@ nav:
 
   - 機械学習・AI・データ:
     - データサイエンス:
-      - NumPy / pandas: pandas-sklearn.md
+      - NumPy / pandas 基礎: pandas-sklearn.md
       - 探索的データ分析（EDA）: EDA.md
       - R言語入門: R言語.md
       - データ可視化: データ可視化.md
@@ -126,7 +126,7 @@ nav:
       - 回帰分析: 回帰分析.md
       - 決定木: 決定木.md
       - アンサンブル学習: アンサンブル学習.md
-      - サポートベクターマシン: サポートベクターマシン.md
+      - サポートベクターマシン（SVM）: サポートベクターマシン.md
       - モデル評価・チューニング: モデル評価-チューニング.md
       - 機械学習理論: 機械学習理論.md
     - 次元削減・クラスタリング:
@@ -134,23 +134,23 @@ nav:
       - クラスター分析: クラスター分析.md
       - 因子分析: 因子分析.md
       - 線形判別分析（LDA）: 線形判別分析.md
-      - 正準相関分析: 正準相関分析.md
+      - 正準相関分析（CCA）: 正準相関分析.md
       - 多次元尺度構成法（MDS）: 多次元尺度構成法.md
       - 対応分析: 対応分析.md
     - 深層学習・NLP・LLM:
       - 深層学習入門: 深層学習入門.md
-      - PyTorch入門: PyTorch入門.md
+      - PyTorch 入門: PyTorch入門.md
       - CNN（画像認識）: CNN.md
       - RNN・時系列: RNN-時系列.md
       - NLP基礎: NLP基礎.md
       - Transformer・Attention: Transformer-Attention.md
-      - 生成モデル（GAN・Diffusion）: 生成モデル.md
-      - LLM活用入門: LLM活用入門.md
-      - Hugging Face入門: HuggingFace入門.md
+      - 生成モデル（GAN・VAE・Diffusion）: 生成モデル.md
+      - LLM 活用入門: LLM活用入門.md
+      - Hugging Face 入門: HuggingFace入門.md
     - MLOps:
       - MLOps概要: MLOps概要.md
-      - 実験管理: 実験管理.md
-      - MLデプロイ: MLデプロイ.md
+      - 実験管理（MLflow / wandb）: 実験管理.md
+      - 機械学習モデルのデプロイ: MLデプロイ.md
       - 機械学習基盤: 機械学習基盤.md
 
   - Web・サーバー・DB:
@@ -164,22 +164,22 @@ nav:
       - npm / Node.js: npm.md
       - Astro: Astro.md
     - バックエンド・API:
-      - Python基礎: Python.md
-      - Python中級: Python中級.md
-      - スクレイピング: スクレイピング.md
+      - Python 基礎: Python.md
+      - Python 中級: Python中級.md
+      - スクレイピング（Webデータ収集）: スクレイピング.md
       - 正規表現: 正規表現.md
       - Web / API設計: WebAPI設計.md
-      - FastAPI: FastAPI.md
+      - Python × Web API（FastAPI）: FastAPI.md
       - GraphQL: GraphQL.md
       - WebSocket・リアルタイム通信: WebSocket.md
       - 認証・認可: 認証・認可.md
       - テスト方法論: テスト方法論.md
     - 設計・プロセス:
-      - オブジェクト指向: オブジェクト指向.md
+      - オブジェクト指向（OOP）: オブジェクト指向.md
       - 関数型プログラミング: 関数型プログラミング.md
       - ソフトウェア設計: ソフトウェア設計.md
       - デザインパターン: デザインパターン.md
-      - アジャイル開発: アジャイル開発.md
+      - アジャイル開発・チーム開発: アジャイル開発.md
     - データベース:
       - データベース基礎: データベース基礎.md
       - データベース詳解: データベース詳解.md
@@ -189,7 +189,7 @@ nav:
 
   - インフラ・開発:
     - CS基礎:
-      - C言語入門: C言語入門.md
+      - C 言語入門: C言語入門.md
       - コンパイラの仕組み: コンパイラの仕組み.md
       - アルゴリズム・データ構造: アルゴリズム-データ構造.md
       - コーディングテスト対策: コーディングテスト対策.md
@@ -209,7 +209,7 @@ nav:
       - モニタリング・可観測性: モニタリング-可観測性.md
       - 運用・障害対応: 運用-障害対応.md
       - システム設計: システム設計.md
-      - マイクロサービス: マイクロサービス.md
+      - マイクロサービス設計: マイクロサービス.md
 
   - セキュリティ・倫理:
     - 基礎・身近な脅威:
