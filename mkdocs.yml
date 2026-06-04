@@ -81,6 +81,8 @@ nav:
 
   - 基礎・ツール:
     - プログラミング入門: プログラミング入門.md
+    - Excel・スプレッドシート: Excel.md
+    - Jupyter Notebook / Google Colab: Jupyter.md
     - 文章の書き方: 文章の書き方.md
     - ターミナル: ターミナル.md
     - Linux基礎: Linux基礎.md
@@ -88,6 +90,8 @@ nav:
     - Git: Git.md
     - GitHub: GitHub.md
     - Markdown: Markdown.md
+    - 論文・技術文書の読み方: 論文の読み方.md
+    - 卒業研究・プロジェクトの進め方: 卒業研究.md
 
   - 数学・統計:
     - 数学・統計ガイド: 数学・統計ガイド.md
@@ -106,6 +110,7 @@ nav:
   - 機械学習・AI・データ:
     - データサイエンス:
       - NumPy / pandas: pandas-sklearn.md
+      - 探索的データ分析（EDA）: EDA.md
       - データ可視化: データ可視化.md
       - 時系列分析: 時系列分析.md
       - Streamlit: Streamlit.md
@@ -206,3 +211,6 @@ nav:
     - セキュリティ基礎: セキュリティ.md
     - セキュリティ詳解: セキュリティ詳解.md
     - OWASP Top 10: OWASP-Top10.md
+
+  - データ倫理・AI倫理:
+    - データ倫理・AI倫理: データ倫理.md
