@@ -120,12 +120,14 @@
 | [NumPy / pandas](pandas-sklearn) | ndarray・DataFrame 操作・データ前処理 |
 | [Polars](Polars) | pandas の高速代替・列指向・Lazy API・Apache Arrow |
 | [DuckDB](DuckDB) | ローカル分析 SQL・Parquet 直読み・pandas/Polars 統合 |
+| [PySpark](PySpark) | 分散データ処理・DataFrame API・MLlib・Structured Streaming |
 | [探索的データ分析（EDA）](EDA) | データ概観・欠損・分布・相関の確認ワークフロー |
 | [R言語入門](R言語) | ggplot2・tidyverse・統計解析・Python との使い分け |
 | [A/Bテスト・実験設計](ABテスト) | サンプルサイズ計算・多重比較・ベイズ A/Bテスト |
 | [空間データ分析](空間データ分析) | GeoPandas・Folium・空間結合・Moran's I |
 | [データ可視化](データ可視化) | matplotlib・seaborn・plotly |
 | [時系列分析](時系列分析) | ARIMA・SARIMA・Prophet・定常性・移動平均 |
+| [時系列の深層学習](時系列の深層学習) | TCN・N-BEATS・TFT・PatchTST・Mamba 系 |
 | [Streamlit](Streamlit) | Python だけで作るインタラクティブ Web アプリ |
 | [データエンジニアリング](データエンジニアリング) | ETL/ELT・dbt・Spark・Kafka・データ品質 |
 | [データパイプライン](データパイプライン) | sklearn Pipeline・DVC・Airflow |
@@ -138,6 +140,8 @@
 | [教師なし学習](教師なし学習) | クラスタリング・次元削減・異常検知の概要 |
 | [異常検知](異常検知) | IsolationForest・LOF・Autoencoder・時系列異常検知 |
 | [強化学習](強化学習) | エージェント・報酬・Q学習・DQN・RLHF |
+| [強化学習詳解](強化学習詳解) | Policy Gradient・PPO・SAC・Model-Based RL |
+| [バンディットアルゴリズム](バンディットアルゴリズム) | ε-greedy・UCB・Thompson Sampling・Contextual Bandit |
 | [特徴量エンジニアリング](特徴量エンジニアリング) | 欠損処理・エンコーディング・スケーリング・Pipeline |
 | [回帰分析](回帰分析) | 線形回帰・ロジスティック回帰・R²・正則化 |
 | [決定木](決定木) | CART・ジニ不純度・情報利得・剪定 |
@@ -145,7 +149,10 @@
 | [サポートベクターマシン](サポートベクターマシン) | マージン最大化・カーネルトリック・SVC・SVR |
 | [レコメンデーションシステム](レコメンデーション) | 協調フィルタリング・行列分解・コンテンツベース |
 | [モデル評価・チューニング](モデル評価-チューニング) | 交差検証・ROC-AUC・GridSearch・Optuna |
+| [モデル評価指標詳解](モデル評価指標詳解) | 不均衡データ・NDCG・FID・BLEU・BERTScore・キャリブレーション |
 | [機械学習理論](機械学習理論) | 損失関数・勾配降下法・過学習・バイアス・バリアンス |
+| [統計的学習理論](統計的学習理論) | PAC 学習・VC 次元・Rademacher 複雑度・汎化界 |
+| [XGBoost / LightGBM 詳解](XGBoost-LightGBM詳解) | GBDT の数学・葉の重み最適化・LightGBM 高速化・CatBoost |
 
 #### 次元削減・クラスタリング
 
@@ -189,6 +196,7 @@
 | [グラフニューラルネットワーク（GNN）](グラフニューラルネットワーク) | GCN・GraphSAGE・GAT・分子設計・SNS 解析 |
 | [メタ学習・Few-shot Learning](メタ学習) | Prototypical Networks・MAML・In-Context Learning |
 | [生成モデル（GAN・Diffusion）](生成モデル) | GAN・VAE・Diffusion・Stable Diffusion の仕組み |
+| [拡散モデルの数学](拡散モデルの数学) | DDPM・スコアマッチング・DDIM・Latent Diffusion・Flow Matching |
 | [説明可能AI（XAI）](説明可能AI) | SHAP・LIME・Grad-CAM・特徴量重要度 |
 | [ファインチューニング詳解](ファインチューニング詳解) | LoRA・QLoRA・RLHF・DPO・Instruction Tuning |
 | [LLM活用入門](LLM活用入門) | プロンプトエンジニアリング・RAG・API活用 |

@@ -124,10 +124,12 @@ nav:
       - NumPy / pandas 基礎: pandas-sklearn.md
       - Polars（高速DataFrame）: Polars.md
       - DuckDB（ローカル分析SQL）: DuckDB.md
+      - PySpark（大規模分散処理）: PySpark.md
       - 探索的データ分析（EDA）: EDA.md
       - R言語入門: R言語.md
       - データ可視化: データ可視化.md
       - 時系列分析: 時系列分析.md
+      - 時系列の深層学習（N-BEATS・TFT・PatchTST）: 時系列の深層学習.md
       - A/Bテスト・実験設計: ABテスト.md
       - 空間データ分析: 空間データ分析.md
       - Streamlit: Streamlit.md
@@ -138,6 +140,8 @@ nav:
       - 教師なし学習: 教師なし学習.md
       - 異常検知: 異常検知.md
       - 強化学習: 強化学習.md
+      - 強化学習詳解（PPO・SAC・モデルベース）: 強化学習詳解.md
+      - バンディットアルゴリズム（UCB・Thompson Sampling）: バンディットアルゴリズム.md
       - 特徴量エンジニアリング: 特徴量エンジニアリング.md
       - 回帰分析: 回帰分析.md
       - 決定木: 決定木.md
@@ -145,7 +149,10 @@ nav:
       - サポートベクターマシン（SVM）: サポートベクターマシン.md
       - レコメンデーションシステム: レコメンデーション.md
       - モデル評価・チューニング: モデル評価-チューニング.md
+      - モデル評価指標詳解（FID・BERTScore・NDCG）: モデル評価指標詳解.md
       - 機械学習理論: 機械学習理論.md
+      - 統計的学習理論（PAC・VC次元）: 統計的学習理論.md
+      - XGBoost / LightGBM 詳解: XGBoost-LightGBM詳解.md
     - 次元削減・クラスタリング:
       - 多変量解析：手法の地図: 多変量解析.md
       - 主成分分析（PCA）: 主成分分析.md
@@ -174,6 +181,7 @@ nav:
       - グラフニューラルネットワーク（GNN）: グラフニューラルネットワーク.md
       - メタ学習・Few-shot Learning: メタ学習.md
       - 生成モデル（GAN・VAE・Diffusion）: 生成モデル.md
+      - 拡散モデルの数学（DDPM・Flow Matching）: 拡散モデルの数学.md
       - 説明可能AI（XAI・SHAP・Grad-CAM）: 説明可能AI.md
       - ファインチューニング詳解（LoRA・DPO）: ファインチューニング詳解.md
       - LLM 活用入門: LLM活用入門.md
