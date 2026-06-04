@@ -97,17 +97,23 @@ nav:
     - 離散数学: 離散数学.md
 
   - 機械学習・AI・データ:
+    - データサイエンス:
+      - NumPy / pandas: pandas-sklearn.md
+      - データ可視化: データ可視化.md
+      - Streamlit: Streamlit.md
+      - データエンジニアリング: データエンジニアリング.md
+      - データパイプライン: データパイプライン.md
     - 機械学習基礎:
       - 教師あり学習: 教師あり学習.md
       - 教師なし学習: 教師なし学習.md
       - 強化学習: 強化学習.md
-      - 機械学習理論: 機械学習理論.md
       - 特徴量エンジニアリング: 特徴量エンジニアリング.md
       - 決定木: 決定木.md
       - アンサンブル学習: アンサンブル学習.md
       - 回帰分析: 回帰分析.md
       - サポートベクターマシン: サポートベクターマシン.md
       - モデル評価・チューニング: モデル評価-チューニング.md
+      - 機械学習理論: 機械学習理論.md
     - 次元削減・クラスタリング:
       - 主成分分析（PCA）: 主成分分析.md
       - クラスター分析: クラスター分析.md
@@ -125,12 +131,6 @@ nav:
       - Transformer・Attention: Transformer-Attention.md
       - LLM活用入門: LLM活用入門.md
       - Hugging Face入門: HuggingFace入門.md
-    - データサイエンス:
-      - NumPy / pandas: pandas-sklearn.md
-      - データ可視化: データ可視化.md
-      - Streamlit: Streamlit.md
-      - データエンジニアリング: データエンジニアリング.md
-      - データパイプライン: データパイプライン.md
     - MLOps:
       - MLOps概要: MLOps概要.md
       - 実験管理: 実験管理.md
