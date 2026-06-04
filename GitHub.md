@@ -225,39 +225,40 @@ git push origin feature/xxx
 
 ---
 
-## GitHub Wiki
+## テックガイドサイトの編集方法
 
-リポジトリに紐づいたドキュメントサイトを作れる機能です。今あなたが読んでいるこのページがまさに GitHub Wiki です。
+今あなたが読んでいるこのサイトは、**このリポジトリの `.md` ファイルを MkDocs でビルドして GitHub Pages に公開**しています。Wiki とは異なり、通常の Git ワークフロー（clone → 編集 → commit → push）でページを更新します。
 
-Markdown（`#` で見出し、`**` で太字など）という書式でページを書きます。
-
-### Web ブラウザから編集する方法
-
-1. Wiki のページを開きます
-2. 右上の **「Edit」** をクリックします
-3. テキストを編集します
-4. **「Save Page」** をクリックします
-
-### ターミナルから編集する方法
-
-Wiki も Git リポジトリとしてクローンできます。ローカルのエディタで複数ページをまとめて編集したいときは、この方法が便利です。
+### ページを編集する手順
 
 ```bash
-# Wiki リポジトリをクローンします（初回だけ）
-git clone https://github.com/ohmitechacademy/tech-guide.wiki.git
-cd tech-guide.wiki
+# リポジトリをクローン（初回だけ）
+git clone https://github.com/ohmitechacademy/tech-guide.git
+cd tech-guide
 
-# ファイルを編集後
-git add .
-git commit -m "Git ページの内容を追記"
-git push origin master
+# ブランチを切って編集
+git checkout -b fix/markdown-typo
+
+# 任意の .md ファイルを VS Code などで編集
+code Markdown.md
+
+# 変更をコミット・プッシュ
+git add Markdown.md
+git commit -m "Markdown ページの誤字を修正"
+git push origin fix/markdown-typo
 ```
 
-通常のコードリポジトリと同じように、Markdown ファイルを編集し、コミットして push します。違いは、Wiki 専用リポジトリではブランチ名が `master` である点です。
+push した後は GitHub でプルリクエストを作成します。`main` ブランチにマージされると、GitHub Actions が自動でサイトをビルドして公開します。
 
-> **`master` ブランチについて**  
-> ふだんのコード管理では `main` ブランチを使いますが、GitHub Wiki は GitHub が管理する別リポジトリで、デフォルトが `master` になっています。  
-> これは GitHub の仕様であり、間違いではありません。Wiki 専用の話として覚えておいてください。
+### 新しいページを追加する手順
+
+1. ルートに `.md` ファイルを作成（例：`NewPage.md`）
+2. `mkdocs.yml` の `nav:` に追加
+3. `Home.md` のセクション表にも追記
+4. commit → push → PR → マージ
+
+> **ブランチとプレビュー**  
+> `main` への直接 push も可能ですが、レビューが必要な場合はブランチを切って PR を使いましょう。ローカルで `zensical serve` を実行するとプレビューを確認できます。
 
 ---
 

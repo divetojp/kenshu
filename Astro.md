@@ -275,7 +275,7 @@ const { Content } = await item.render();
 
 > **Markdown とは？**  
 > `#` で見出し、`**` で太字など、シンプルな記号で文章を装飾できる書き方のルールです。  
-> この Wiki も Markdown で書かれています。
+> このテックガイドサイトも Markdown で書かれています。
 
 ```
 src/content/
