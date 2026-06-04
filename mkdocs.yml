@@ -100,6 +100,7 @@ nav:
     - データサイエンス:
       - NumPy / pandas: pandas-sklearn.md
       - データ可視化: データ可視化.md
+      - 時系列分析: 時系列分析.md
       - Streamlit: Streamlit.md
       - データエンジニアリング: データエンジニアリング.md
       - データパイプライン: データパイプライン.md
@@ -129,6 +130,7 @@ nav:
       - RNN・時系列: RNN-時系列.md
       - NLP基礎: NLP基礎.md
       - Transformer・Attention: Transformer-Attention.md
+      - 生成モデル（GAN・Diffusion）: 生成モデル.md
       - LLM活用入門: LLM活用入門.md
       - Hugging Face入門: HuggingFace入門.md
     - MLOps:
@@ -143,6 +145,7 @@ nav:
       - JavaScript基礎: JavaScript.md
       - TypeScript: TypeScript.md
       - React: React.md
+      - Next.js: Next.js.md
       - npm / Node.js: npm.md
       - Astro: Astro.md
     - バックエンド・API:
