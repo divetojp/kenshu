@@ -83,6 +83,7 @@
 |--------|------|
 | [NumPy / pandas](pandas-sklearn) | ndarray・DataFrame 操作・データ前処理 |
 | [データ可視化](データ可視化) | matplotlib・seaborn・plotly |
+| [時系列分析](時系列分析) | ARIMA・SARIMA・Prophet・定常性・移動平均 |
 | [Streamlit](Streamlit) | Python だけで作るインタラクティブ Web アプリ |
 | [データエンジニアリング](データエンジニアリング) | ETL/ELT・dbt・Spark・Kafka・データ品質 |
 | [データパイプライン](データパイプライン) | sklearn Pipeline・DVC・Airflow |
@@ -124,6 +125,7 @@
 | [RNN・時系列](RNN-時系列) | LSTM・GRU・スライディングウィンドウ |
 | [NLP基礎](NLP基礎) | トークナイズ・TF-IDF・Word2Vec |
 | [Transformer・Attention](Transformer-Attention) | Q/K/V・Multi-Head・Positional Encoding・BERT vs GPT |
+| [生成モデル（GAN・Diffusion）](生成モデル) | GAN・VAE・Diffusion・Stable Diffusion の仕組み |
 | [LLM活用入門](LLM活用入門) | プロンプトエンジニアリング・RAG・API活用 |
 | [Hugging Face入門](HuggingFace入門) | Pipeline・Tokenizer・ファインチューニング |
 
@@ -145,9 +147,11 @@
 | ページ | 内容 |
 |--------|------|
 | [HTML / CSS](HTML-CSS) | マークアップ・スタイリングの基礎 |
+| [Tailwind CSS](Tailwind-CSS) | ユーティリティファースト CSS・レスポンシブ設計 |
 | [JavaScript基礎](JavaScript) | 変数・配列・非同期処理・DOM 操作 |
 | [TypeScript](TypeScript) | 型安全な JavaScript・型定義・ジェネリクス |
 | [React](React) | コンポーネント・props・useState・useEffect |
+| [Next.js](Next.js) | App Router・SSR/SSG/ISR・API Routes |
 | [npm / Node.js](npm) | パッケージ管理・npm コマンド |
 | [Astro](Astro) | 静的サイトジェネレータ・動的ルーティング |
 
@@ -159,6 +163,8 @@
 | [正規表現](正規表現) | パターンマッチング・re モジュール |
 | [Web / API設計](WebAPI設計) | REST・ステータスコード・認証・Cookie |
 | [FastAPI](FastAPI) | REST API 開発・pandas/sklearn との統合 |
+| [GraphQL](GraphQL) | Query/Mutation/Subscription・N+1問題・Strawberry |
+| [WebSocket・リアルタイム通信](WebSocket) | ポーリング/SSE/WebSocket 比較・チャット実装 |
 | [認証・認可](認証・認可) | JWT・OAuth2・セッション管理・FastAPI 実装 |
 | [テスト方法論](テスト方法論) | ユニットテスト・モック・TDD・pytest |
 
@@ -169,6 +175,7 @@
 | [オブジェクト指向](オブジェクト指向) | カプセル化・継承・ポリモーフィズム・SOLID |
 | [関数型プログラミング](関数型プログラミング) | 純粋関数・高階関数・map/filter/reduce |
 | [ソフトウェア設計](ソフトウェア設計) | 責務分離・依存注入・リファクタリング |
+| [デザインパターン](デザインパターン) | Factory・Observer・Strategy・Repository ほか GoF パターン |
 | [アジャイル開発](アジャイル開発) | スクラム・スプリント・コードレビュー |
 
 #### データベース
@@ -212,10 +219,12 @@
 | [Docker](Docker) | イメージ・コンテナ・Compose |
 | [Kubernetes](Kubernetes) | Pod・Deployment・Service・kubectl |
 | [CI/CD](CI-CD) | GitHub Actions・自動テスト・自動デプロイ |
+| [Terraform / IaC](Terraform) | インフラをコードで管理・Provider/Resource/State |
 | [Cloudflare](Cloudflare) | 自動デプロイ・ドメイン設定 |
 | [モニタリング・可観測性](モニタリング-可観測性) | Prometheus・Grafana・構造化ログ・OpenTelemetry |
 | [運用・障害対応](運用-障害対応) | ログ・メトリクス・可用性・冗長化 |
 | [システム設計](システム設計) | スケーラビリティ・キャッシュ・設計面接 |
+| [マイクロサービス](マイクロサービス) | モノリスとの比較・API ゲートウェイ・同期/非同期通信 |
 
 ---
 
