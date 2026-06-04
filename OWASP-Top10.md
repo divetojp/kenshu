@@ -1,184 +1,196 @@
 # OWASP Top 10
 
-Web アプリケーションで最も重大なセキュリティリスク 10 項目です。OWASP（Open Web Application Security Project）が定期的に更新し、セキュリティ診断・設計・レビューの共通言語として使われます。
+Web アプリケーションでよく起きるセキュリティの失敗を10項目にまとめたリストです。OWASP（Open Web Application Security Project）が数年おきに更新しています。「セキュリティ診断でここを必ず見る」という共通言語として使われます。
 
 ---
 
 ## はじめて読む人へ
 
-セキュリティの問題は「実装の細かいミス」だけでなく、「設計の考え方」から生まれることが多いです。このページでは各リスクの仕組みと防御策をまとめて把握し、開発中に「これは A03 のリスクに該当するか？」と考える習慣をつけることを目標にします。
+このリストは「プロのエンジニアでもやりがちなミス」を集めたものです。全項目を覚える必要はありません。「自分が今書いているコードに当てはまるものはないか」という視点で使います。
 
 ### 読む前に押さえること
 
-- [セキュリティ基礎](セキュリティ.md) の HTTPS・.env・XSS/CSRF の基本
-- [セキュリティ詳解](セキュリティ詳解.md) の SQLi・認証・パスワード管理
+- [セキュリティ基礎](セキュリティ.md) — HTTPS・.env・XSS/CSRF の基本
+- [セキュリティ詳解](セキュリティ詳解.md) — SQLi・bcrypt・認証/認可のコード
 
 ### 読み終えたら説明できること
 
-- OWASP Top 10 の 10 項目の名前と概要を説明できる
+- Top 10 の各項目が「何をされる失敗か」を1文で説明できる
 - 自分のコードで該当するリスクを指摘できる
 
 ---
 
-## 2021 年版 Top 10
+## 2021 年版 Top 10 早見表
 
-| 順位 | リスク名 | 一言説明 |
-|------|--------|---------|
-| A01 | アクセス制御の不備 | 認可チェックの漏れ・他人のデータへのアクセス |
-| A02 | 暗号化の失敗 | 平文保存・弱いアルゴリズム |
-| A03 | インジェクション | SQL・コマンド・テンプレートへの悪意ある入力 |
-| A04 | 安全でない設計 | 脅威モデリングや安全性を考慮しないアーキテクチャ |
-| A05 | セキュリティの設定ミス | デフォルトパスワード・不要機能の公開 |
-| A06 | 脆弱なコンポーネント | 既知の脆弱性を持つライブラリの使用 |
-| A07 | 認証・識別の失敗 | ブルートフォース・セッション固定・弱いパスワード |
-| A08 | ソフトウェア・データの整合性の失敗 | CI/CDへの不正介入・署名なし更新 |
-| A09 | ログ・監視の不足 | 攻撃を検知・記録できていない |
-| A10 | SSRF（サーバーサイドリクエストフォージェリ） | サーバーを踏み台に内部リソースへアクセス |
+| # | リスク名 | ひとことで言うと |
+|---|---------|----------------|
+| A01 | アクセス制御の不備 | 「他人のデータが見える・操作できる」 |
+| A02 | 暗号化の失敗 | 「パスワードが平文で流れる・保存される」 |
+| A03 | インジェクション | 「入力が命令として実行される」 |
+| A04 | 安全でない設計 | 「そもそも設計の段階で穴がある」 |
+| A05 | セキュリティの設定ミス | 「デフォルトのまま・デバッグモードON」 |
+| A06 | 脆弱なコンポーネント | 「古いライブラリの既知の穴を突かれる」 |
+| A07 | 認証・識別の失敗 | 「ログイン機能に穴がある」 |
+| A08 | ソフトウェア整合性の失敗 | 「CI/CD やパッケージに不正が混入」 |
+| A09 | ログ・監視の不足 | 「攻撃されても気づかない」 |
+| A10 | SSRF | 「サーバーを踏み台に内部に侵入される」 |
 
 ---
 
 ## A01：アクセス制御の不備
 
-最も多発するリスクです。「ログインしているかどうかのチェック」だけでなく、「このユーザーはこのリソースにアクセスしてよいか」の確認が漏れています。
+**何が起きるか：** ログインしているだけで、他の人のデータにもアクセスできてしまう。
 
-**典型例：**
+```
+シナリオ:
+  自分のプロフィールページ → https://example.com/users/42/profile
+  URLの42を43に変えたら → 他人のプロフィールが見えた 😱
+```
 
 ```python
-# 脆弱：自分以外のユーザー情報が取得できる
-@app.get("/users/{user_id}/profile")
-def get_profile(user_id: int):
-    return db.get_user(user_id)  # 誰のIDでも取れる
+# ❌ 認証だけして認可を忘れている
+@app.get("/users/{user_id}/data")
+def get_data(user_id: int, current_user = Depends(get_current_user)):
+    return db.get_user(user_id)  # 誰のIDでも取れる！
 
-# 安全：自分のリソースだけに制限
-@app.get("/users/{user_id}/profile")
-def get_profile(user_id: int, current_user = Depends(get_current_user)):
+# ✅ 「自分のリソースか」を必ず確認する
+@app.get("/users/{user_id}/data")
+def get_data(user_id: int, current_user = Depends(get_current_user)):
     if current_user["id"] != user_id:
-        raise HTTPException(status_code=403, detail="アクセスできません")
+        raise HTTPException(403, "アクセスできません")
     return db.get_user(user_id)
 ```
 
-**確認チェックリスト：**
-- URL の ID を変えると他人のデータが見えないか
-- 管理者専用エンドポイントにロールチェックがあるか
+**チェック：** URL の ID・番号を変えたとき、他人のデータが見えないか？
 
 ---
 
 ## A02：暗号化の失敗
 
-データが平文で保存・送信されているリスクです。
+**何が起きるか：** パスワードや個人情報が平文（そのままの文字）で保存・送信されており、DB が漏れたり通信が傍受されたりすると即座に読まれる。
 
-**やってはいけないこと：**
+```
+典型的な失敗:
+  DB に保存: password = "abc123"  ← 平文
+  DB に保存: password = "900150983cd24fb0d6963f7d28e17f72"  ← MD5（簡単に解読可）
 
-```python
-# NG: パスワードを平文で保存
-user.password = request.password
-
-# NG: MD5でハッシュ（高速すぎて総当たりに弱い）
-import hashlib
-user.password = hashlib.md5(request.password.encode()).hexdigest()
-
-# OK: bcrypt / Argon2 を使う
-from passlib.context import CryptContext
-pwd_context = CryptContext(schemes=["bcrypt"])
-user.password = pwd_context.hash(request.password)
+  HTTP で送信: POST /login password=abc123  ← 暗号化されていない
 ```
 
-**確認チェックリスト：**
-- DB に保存するパスワードは bcrypt/Argon2 か
-- HTTPS が強制されているか
-- 機密データ（クレカ番号等）の保存方法は適切か
+```python
+# ✅ bcrypt で保存
+from passlib.context import CryptContext
+pwd_context = CryptContext(schemes=["bcrypt"])
+hashed = pwd_context.hash("abc123")
+# → "$2b$12$..." ← これだけ保存する
+```
+
+**チェック：** パスワードは bcrypt/Argon2 か？ HTTPS が強制されているか？
 
 ---
 
 ## A03：インジェクション
 
-外部入力が「コード」として実行されるリスクです。SQL インジェクションが代表例ですが、OS コマンド・テンプレートエンジンにも同じ問題が起きます。
+**何が起きるか：** ユーザーの入力が「データ」ではなく「命令」として実行される。SQL インジェクション・OS コマンドインジェクションが代表例。
 
 ```python
-# OS コマンドインジェクション（NG）
-import subprocess
-filename = request.query_params["file"]
-subprocess.run(f"cat /var/log/{filename}", shell=True)  # ; rm -rf / を渡せる
+# SQL インジェクション
+query = f"SELECT * FROM users WHERE id = {user_id}"
+# → user_id に "1; DROP TABLE users; --" を入力されると users テーブルが消える
 
-# 安全（引数をリストで渡す）
-subprocess.run(["cat", f"/var/log/{filename}"], shell=False)
+# OS コマンドインジェクション
+filename = request.args["file"]
+os.system(f"cat logs/{filename}")
+# → filename に "../etc/passwd; rm -rf /" を入れられると被害甚大
+
+# ✅ どちらも「命令とデータを分ける」で解決
+cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+subprocess.run(["cat", f"logs/{filename}"], shell=False)
 ```
 
-**原則：入力を「コード」ではなく「データ」として扱う。**
-
-- SQL: プレースホルダを使う
-- OS コマンド: `shell=False` でリストを渡す
-- テンプレート: 自動エスケープを有効にする
+**チェック：** ユーザー入力を文字列結合で SQL・コマンドに混ぜていないか？
 
 ---
 
 ## A04：安全でない設計
 
-コードの実装問題ではなく、設計段階でセキュリティを考慮していないリスクです。
+**何が起きるか：** コードの実装以前に、設計の段階でセキュリティを考慮していない。
 
-**例：**
-- パスワードリセット機能を「秘密の質問」だけで認証している
-- 決済フローでサーバー側の金額検証がなく、クライアントから価格を送れる
-- レート制限がなくブルートフォースし放題
+```
+典型的な「安全でない設計」:
 
-**対策：**
+  パスワードリセット:
+    「秘密の質問：お母さんの旧姓は？」
+    → SNS で調べれば分かる情報 → なりすましできる
+
+  決済:
+    フロントエンドから「商品金額: 10円」を送れる
+    → 攻撃者がリクエストを改ざんして1円で購入
+
+  ログイン:
+    失敗しても何度でも試せる
+    → ブルートフォース（総当たり）でパスワードを特定される
+```
 
 ```python
-# レート制限の例（slowapi を使用）
+# ✅ レート制限（ブルートフォース対策）
 from slowapi import Limiter
-from slowapi.util import get_remote_address
-
-limiter = Limiter(key_func=get_remote_address)
 
 @app.post("/login")
-@limiter.limit("5/minute")  # 1分間に5回まで
+@limiter.limit("5/minute")   # 1分間に5回まで
 def login(request: Request, data: LoginRequest):
     ...
 ```
+
+**チェック：** 金額・権限に関わるデータはサーバー側で検証しているか？
 
 ---
 
 ## A05：セキュリティの設定ミス
 
-デフォルト設定のまま本番に出すリスクです。
-
-**よくある設定ミス：**
-
-| 問題 | 悪い例 | 良い例 |
-|------|--------|--------|
-| デバッグモードON | `DEBUG=True` | 本番は `DEBUG=False` |
-| デフォルトパスワード | admin/admin | ランダムな強いパスワード |
-| 不要なエンドポイント公開 | `/admin` が誰でもアクセス可 | IP制限・VPN必須 |
-| エラーの詳細露出 | スタックトレースをそのまま返す | 汎用エラーメッセージを返す |
+**何が起きるか：** デフォルトのパスワード・設定、デバッグモードの本番有効化、不要な機能の公開。
 
 ```python
-# FastAPI: 本番でのエラー詳細非表示
-from fastapi.responses import JSONResponse
-from fastapi.exceptions import RequestValidationError
+# よくある設定ミス
 
+# ❌ 本番でデバッグモード ON → スタックトレースがユーザーに見える
+DEBUG = True  # 本番は必ず False
+
+# ❌ エラーの詳細をそのまま返す
 @app.exception_handler(Exception)
-async def general_exception_handler(request, exc):
-    # 詳細はログに出す、ユーザーには汎用メッセージ
-    logger.error(f"Unhandled error: {exc}")
-    return JSONResponse(status_code=500, content={"detail": "サーバーエラーが発生しました"})
+async def handler(req, exc):
+    return JSONResponse(500, {"error": str(exc)})  # スタックトレース公開
+
+# ✅ 本番用エラーハンドリング
+@app.exception_handler(Exception)
+async def handler(req, exc):
+    logger.error(f"Error: {exc}")  # ログには残す
+    return JSONResponse(500, {"error": "サーバーエラーが発生しました"})  # 詳細は隠す
 ```
+
+| 設定ミス | 危険 | 対処 |
+|---------|------|------|
+| `DEBUG=True` で本番公開 | 内部コードが見える | `DEBUG=False` |
+| デフォルトパスワード（admin/admin） | 即乗っ取り | 初回起動時に変更必須 |
+| CORS で `*` を許可 | どのサイトからでも API 呼び出し可 | 許可するオリジンを限定 |
+| `/admin` が認証なし | 誰でも管理画面にアクセス | IP 制限・認証を追加 |
 
 ---
 
 ## A06：脆弱なコンポーネント
 
-使用しているライブラリに既知の脆弱性がある状態です。
+**何が起きるか：** 使用しているライブラリに既知の脆弱性がある。古いバージョンのまま放置すると、その脆弱性を突く攻撃ツールが公開されているため、誰でも攻撃できる状態になる。
 
 ```bash
-# Python: 脆弱性チェック
-pip install safety
-safety check
+# Python の脆弱性チェック
+pip install pip-audit
+pip-audit
 
-# JavaScript
+# JavaScript の脆弱性チェック
 npm audit
-npm audit fix
 
-# GitHub Dependabot を有効にする（.github/dependabot.yml）
+# 自動チェック（GitHub Dependabot）
+# .github/dependabot.yml を作るだけで週次チェック有効化
 ```
 
 ```yaml
@@ -189,130 +201,156 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
 ```
+
+**チェック：** 定期的に `npm audit` / `pip-audit` を実行しているか？
 
 ---
 
 ## A07：認証・識別の失敗
 
-ログイン機能の実装ミスです。
-
-**よくある問題：**
-- ブルートフォース攻撃（レート制限なし）
-- 弱いパスワードを許容
-- JWT の `alg: none` を受け入れる
+**何が起きるか：** ログイン機能の実装に穴があり、アカウントを乗っ取られる。
 
 ```python
-# JWT 検証時のアルゴリズム明示（必須）
-# NG: algorithms を指定しないと "none" を受け入れる実装がある
-payload = jwt.decode(token, SECRET_KEY)  # 危険
+# よくある認証の穴
 
-# OK: 使用するアルゴリズムを明示
-payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+# ❌ レート制限なし → パスワードを無限に試せる（ブルートフォース）
+@app.post("/login")
+def login(data: LoginData):
+    if db.check_password(data.email, data.password):
+        return {"token": create_token(data.email)}
+
+# ❌ JWT のアルゴリズム未指定
+jwt.decode(token, SECRET_KEY)  # "alg: none" を受け入れる実装がある
+
+# ✅ 安全な実装
+@app.post("/login")
+@limiter.limit("5/minute")     # レート制限
+def login(data: LoginData):
+    ...
+
+jwt.decode(token, SECRET_KEY, algorithms=["HS256"])  # アルゴリズム明示
 ```
+
+**チェック：** ログインにレート制限はあるか？ JWT のアルゴリズムは明示しているか？
 
 ---
 
 ## A08：ソフトウェア・データの整合性の失敗
 
-CI/CD パイプラインや依存パッケージの更新に不正が混入するリスクです。
+**何が起きるか：** CI/CD パイプラインや npm パッケージに悪意あるコードが混入する。
 
-**具体例：**
-- `npm install` で悪意あるパッケージをインストール（typosquatting）
-- CI/CD の secrets が漏洩し、ビルドに悪意あるコードが注入される
+```
+典型例:
+  「lodash」と見せかけた「1odash」（Lをイチにした偽物）をインストール
+  → インストール時にマルウェアが実行される（タイポスクワッティング）
 
-**対策：**
-- `package-lock.json` / `poetry.lock` をコミットし、バージョンを固定する
-- GitHub Actions の `GITHUB_TOKEN` の権限を最小化する
-- サードパーティ Action のハッシュを固定する（`@v3` でなく `@sha256:...`）
+  CI/CD の Secrets が GitHub Actions のサードパーティ Action に漏れる
+```
+
+```bash
+# package-lock.json / poetry.lock をコミットしてバージョンを固定
+git add package-lock.json
+```
+
+```yaml
+# GitHub Actions: サードパーティ Action はハッシュで固定
+- uses: actions/checkout@v4         # ❌ タグは変更可能
+- uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # ✅ ハッシュで固定
+```
 
 ---
 
 ## A09：ログ・監視の不足
 
-攻撃が起きても検知・追跡できない状態です。
+**何が起きるか：** 攻撃が起きても検知できず、被害が拡大してから発覚する。
 
 ```python
+# ✅ 重要な操作は必ずログに残す
 import logging
-
 logger = logging.getLogger(__name__)
 
 @app.post("/login")
-def login(req: LoginRequest):
+def login(req: LoginRequest, request: Request):
     user = authenticate(req.email, req.password)
     if not user:
-        # 失敗ログを必ず残す
-        logger.warning(f"Login failed: email={req.email} ip={get_client_ip()}")
-        raise HTTPException(status_code=401)
+        # 失敗ログ（何度も失敗していたら攻撃の可能性）
+        logger.warning(f"Login failed | email={req.email} | ip={request.client.host}")
+        raise HTTPException(401)
 
-    logger.info(f"Login success: user_id={user.id}")
-    return issue_token(user)
+    logger.info(f"Login success | user_id={user.id}")
+    return create_token(user)
 ```
 
-**ログに残すべき事象：**
-- ログイン成功・失敗
-- 権限エラー（403）
-- 重要なデータ変更（削除・ロール変更）
-- 異常に多いリクエスト
+**ログに残すべきもの：**
+
+```
+□ ログイン成功・失敗（IP アドレスも）
+□ 権限エラー（403）が出た箇所
+□ 重要データの変更・削除
+□ 管理者操作
+□ 短時間に大量のリクエスト
+```
 
 ---
 
 ## A10：SSRF（サーバーサイドリクエストフォージェリ）
 
-サーバーが外部の URL を取得する機能を悪用し、内部ネットワークへアクセスさせる攻撃です。
+**何が起きるか：** 「この URL の内容を取ってきて」という機能を悪用し、サーバーの内側（プライベートネットワーク・クラウドのメタデータ）にアクセスさせる。
 
 ```
-攻撃者 → 「この URL の内容を取得して」
-          → http://169.254.169.254/latest/meta-data/  ← AWS メタデータ
-サーバーが取得 → IAM 認証情報が漏洩
+シナリオ（画像取得機能）:
+  正常: https://example.com/fetch?url=https://images.cdn.com/photo.jpg
+  攻撃: https://example.com/fetch?url=http://169.254.169.254/latest/meta-data/
+        ↑ AWS のインスタンスメタデータ。IAM の認証情報が丸ごと取れる
 ```
 
 ```python
 from urllib.parse import urlparse
 
-ALLOWED_HOSTS = {"api.trusted.com", "cdn.example.com"}
+# ✅ 許可リストに含まれたホストだけにリクエストする
+ALLOWED_HOSTS = {"images.example.com", "cdn.trusted.com"}
 
-def fetch_url(url: str) -> bytes:
+def fetch_external(url: str) -> bytes:
     parsed = urlparse(url)
-    # 許可リストに含まれていないホストへのリクエストを拒否
     if parsed.hostname not in ALLOWED_HOSTS:
-        raise ValueError(f"許可されていないホストです: {parsed.hostname}")
-    # ... requests.get(url) ...
+        raise ValueError(f"このホストへのアクセスは許可されていません: {parsed.hostname}")
+    return requests.get(url, timeout=5).content
 ```
 
 ---
 
-## 開発チェックリスト
+## 開発時のチェックリスト
 
-プルリクエストのレビュー時に確認する観点です。
+コードレビューやリリース前に確認してください。
 
-| 項目 | 確認内容 |
-|------|---------|
-| A01 | 認可チェックが全エンドポイントにあるか |
-| A02 | パスワードは bcrypt か、機密情報は平文保存していないか |
-| A03 | 入力を SQL/コマンドに直接埋め込んでいないか |
-| A05 | DEBUG=False、不要なエンドポイントを閉じているか |
-| A06 | `npm audit` / `safety check` をパスしているか |
-| A07 | レート制限があるか、JWT アルゴリズムを明示しているか |
-| A09 | 認証失敗・権限エラーをログに記録しているか |
+| 確認項目 | 対応する A # |
+|---------|------------|
+| URL の ID を変えると他人のデータが見えないか | A01 |
+| パスワードは bcrypt/Argon2 で保存しているか | A02 |
+| ユーザー入力をSQL/コマンドに直接混ぜていないか | A03 |
+| ログイン試行にレート制限があるか | A04・A07 |
+| 本番で DEBUG=False になっているか | A05 |
+| `npm audit` / `pip-audit` をパスしているか | A06 |
+| JWT のアルゴリズムを明示しているか | A07 |
+| ロックファイル（package-lock.json 等）をコミットしているか | A08 |
+| 認証失敗・権限エラーをログに残しているか | A09 |
+| 外部 URL を取得する機能は許可リストを使っているか | A10 |
 
 ---
 
 ## 確認問題
 
-1. A01（アクセス制御の不備）と A07（認証の失敗）の違いを具体例を使って説明してください。
-2. `http://169.254.169.254/` へのリクエストが危険な理由を説明してください。
-3. 自分が開発しているアプリケーションで最もリスクが高い Top 10 項目はどれですか？理由も述べてください。
+1. A01（アクセス制御の不備）と A07（認証の失敗）の違いを「ログインの前後」という観点で説明してください。
+2. A09「ログ・監視の不足」がセキュリティリスクになる理由を、「攻撃が成功した後」の視点から説明してください。
+3. 自分が今作っているまたは使っているアプリケーションで、最も当てはまりそうな項目を選んで理由を説明してください。
 
 ---
 
 ## 関連ページ
 
-- [セキュリティ基礎](セキュリティ.md) — HTTPS・秘密情報管理
-- [セキュリティ詳解](セキュリティ詳解.md) — SQLi・XSS・CSRF・bcrypt の実装
-- [認証・認可](認証・認可.md) — JWT・OAuth2 の実装
-- [ネットワーク詳解](ネットワーク詳解.md) — TLS・HTTP ヘッダーの仕組み
+- [セキュリティ基礎](セキュリティ.md) — HTTPS・.env・XSS/CSRF の入門
+- [セキュリティ詳解](セキュリティ詳解.md) — 各攻撃の実装レベルの解説
+- [認証・認可](認証・認可.md) — JWT・OAuth2・ロール管理の実装
+- [マルウェア・サイバー攻撃](マルウェア・サイバー攻撃.md) — Web 以外の攻撃手法
+- [情報セキュリティ法規と制度](情報セキュリティ法規.md) — 被害時の法的対応・相談窓口
