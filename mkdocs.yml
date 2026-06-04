@@ -142,6 +142,7 @@ nav:
   - Web・サーバー・DB:
     - フロントエンド:
       - HTML / CSS: HTML-CSS.md
+      - Tailwind CSS: Tailwind-CSS.md
       - JavaScript基礎: JavaScript.md
       - TypeScript: TypeScript.md
       - React: React.md
@@ -159,6 +160,7 @@ nav:
       - オブジェクト指向: オブジェクト指向.md
       - 関数型プログラミング: 関数型プログラミング.md
       - ソフトウェア設計: ソフトウェア設計.md
+      - デザインパターン: デザインパターン.md
       - アジャイル開発: アジャイル開発.md
     - データベース:
       - データベース基礎: データベース基礎.md
@@ -184,6 +186,7 @@ nav:
       - Docker: Docker.md
       - Kubernetes: Kubernetes.md
       - CI/CD: CI-CD.md
+      - Terraform / IaC: Terraform.md
       - Cloudflare: Cloudflare.md
       - モニタリング・可観測性: モニタリング-可観測性.md
       - 運用・障害対応: 運用-障害対応.md
