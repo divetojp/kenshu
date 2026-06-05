@@ -253,11 +253,12 @@ func main() {
 
 OS スレッドのスタックサイズは通常 1〜8 MB（固定）ですが、goroutine のスタックは最初 2〜4 KB から始まり必要に応じて拡張されます。
 
-```
-1 GB メモリで:
-  OS スレッド: 1 GB / 2 MB = ~500 スレッドが上限
-  goroutine:  1 GB / 4 KB = ~250,000 goroutine が起動可能
-```
+!!! info ""
+    ```
+    1 GB メモリで:
+      OS スレッド: 1 GB / 2 MB = ~500 スレッドが上限
+      goroutine:  1 GB / 4 KB = ~250,000 goroutine が起動可能
+    ```
 
 Go ランタイムの M:N スレッドスケジューラが $M$ 個の goroutine を $N$ 個の OS スレッドにマッピングし、ブロッキング I/O 時に別の goroutine を同じスレッドで実行します。
 

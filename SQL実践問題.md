@@ -170,12 +170,13 @@ SELECT * FROM ancestors;
 
 **実行イメージ：**
 
-```
-ステップ 1：id=5 の行を取得
-ステップ 2：id=5 の manager_id を使って、その上司の行を取得
-ステップ 3：その上司の manager_id を使って、さらに上の行を取得
-  ... manager_id が NULL になるまで繰り返す
-```
+!!! info ""
+    ```
+    ステップ 1：id=5 の行を取得
+    ステップ 2：id=5 の manager_id を使って、その上司の行を取得
+    ステップ 3：その上司の manager_id を使って、さらに上の行を取得
+      ... manager_id が NULL になるまで繰り返す
+    ```
 
 > 無限ループを防ぐため、PostgreSQL は `CYCLE` 句、MySQL 8.0 は最大再帰回数（デフォルト 1000）で自動停止します。
 

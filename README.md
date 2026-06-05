@@ -21,17 +21,18 @@
 
 ## リポジトリ構成
 
-```
-tech-guide/
-├── *.md              # コンテンツ（ルートに配置、CI でビルド時に docs/ にコピー）
-├── Home.md           # トップページ（index.md にマッピング）
-├── mkdocs.yml        # MkDocs Material テーマの設定
-├── requirements.txt  # ビルド依存関係
-├── docs/
-│   ├── javascripts/  # KaTeX（数式描画）
-│   └── stylesheets/  # カスタム CSS
-└── .github/workflows/deploy.yml  # GitHub Pages への自動デプロイ
-```
+!!! info ""
+    ```
+    tech-guide/
+    ├── *.md              # コンテンツ（ルートに配置、CI でビルド時に docs/ にコピー）
+    ├── Home.md           # トップページ（index.md にマッピング）
+    ├── mkdocs.yml        # MkDocs Material テーマの設定
+    ├── requirements.txt  # ビルド依存関係
+    ├── docs/
+    │   ├── javascripts/  # KaTeX（数式描画）
+    │   └── stylesheets/  # カスタム CSS
+    └── .github/workflows/deploy.yml  # GitHub Pages への自動デプロイ
+    ```
 
 ## コードサンプル
 

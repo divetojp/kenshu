@@ -264,13 +264,14 @@ flowchart LR
 
 生成されたドキュメントから直接 API をテストできます。
 
-```
-GET /users HTTP/1.1
-Authorization: Bearer eyJ...（UI から JWT を設定してテスト）
-
-→ "Try it out" → "Execute" で実際に API を呼び出し
-→ レスポンスのステータスコード・ボディを確認
-```
+!!! info ""
+    ```
+    GET /users HTTP/1.1
+    Authorization: Bearer eyJ...（UI から JWT を設定してテスト）
+    
+    → "Try it out" → "Execute" で実際に API を呼び出し
+    → レスポンスのステータスコード・ボディを確認
+    ```
 
 チームメンバーや外部開発者への API 説明・手動テスト・コードレビューに活用できます。
 
