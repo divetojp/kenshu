@@ -50,15 +50,13 @@ python3
 
 起動すると `>>>` というプロンプトが表示されます。これは「Python の命令を入力できます」という合図です。
 
-!!! info ""
-    >>> print("Hello, World!")
-    Hello, World!
-    >>> 1 + 2
-    3
-    >>> "Python" + " is fun"
-    'Python is fun'
-    >>> exit()   # 終了
-
+>>> print("Hello, World!")
+Hello, World!
+>>> 1 + 2
+3
+>>> "Python" + " is fun"
+'Python is fun'
+>>> exit()   # 終了
 REPL では、式だけを入力しても結果が表示されます。`1 + 2` は数値の足し算、`"Python" + " is fun"` は文字列の連結です。プログラムでは、同じ考え方をファイルに書いてまとめて実行します。
 
 **スクリプトファイルを実行：**

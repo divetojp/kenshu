@@ -53,19 +53,18 @@ flowchart TD
 
 ### プロンプトテンプレート
 
-!!! info ""
-    [システム]
-    あなたは丁寧なアシスタントです。
-    以下のコンテキストに基づいて質問に答えてください。
-    コンテキストに答えがない場合は「分かりません」と答えてください。
+[システム]
+あなたは丁寧なアシスタントです。
+以下のコンテキストに基づいて質問に答えてください。
+コンテキストに答えがない場合は「分かりません」と答えてください。
 
-    [コンテキスト]
-    {retrieved_chunks}
+[コンテキスト]
+{retrieved_chunks}
 
-    [質問]
-    {user_question}
+[質問]
+{user_question}
 
-    [回答]
+[回答]
 ### RAG の評価指標
 
 | 指標 | 意味 | 評価ツール |
@@ -182,24 +181,22 @@ if response.choices[0].finish_reason == "tool_calls":
 
 ### 基本パターン
 
-!!! info ""
-    Thought: 何をすべきかを考える（推論）
-    Action: ツールを呼び出す（行動）
-    Observation: ツールの結果を受け取る（観察）
-    → 繰り返し、最終的に答えを出力
+Thought: 何をすべきかを考える（推論）
+Action: ツールを呼び出す（行動）
+Observation: ツールの結果を受け取る（観察）
+→ 繰り返し、最終的に答えを出力
 **例：「2024 年の Apple の売上と利益率を教えて」**
 
-!!! info ""
-    Thought: まず Apple の 2024 年の売上を検索する必要がある
-    Action: search("Apple 2024 annual revenue")
-    Observation: Apple's FY2024 revenue was $391 billion...
+Thought: まず Apple の 2024 年の売上を検索する必要がある
+Action: search("Apple 2024 annual revenue")
+Observation: Apple's FY2024 revenue was $391 billion...
 
-    Thought: 次に利益率を計算するため純利益を調べる
-    Action: search("Apple 2024 net income")
-    Observation: Apple's FY2024 net income was $93.7 billion...
+Thought: 次に利益率を計算するため純利益を調べる
+Action: search("Apple 2024 net income")
+Observation: Apple's FY2024 net income was $93.7 billion...
 
-    Thought: 利益率 = 93.7/391 = 24% と計算できる
-    Final Answer: Apple の 2024 年売上は 3910 億ドル、利益率は約 24% です。
+Thought: 利益率 = 93.7/391 = 24% と計算できる
+Final Answer: Apple の 2024 年売上は 3910 億ドル、利益率は約 24% です。
 ReAct は「中間ステップの透明性」が高く、何がうまくいかなかったかをデバッグしやすいです。
 
 ---

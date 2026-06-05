@@ -37,18 +37,17 @@ Astro は、静的サイトを作るためのフレームワークです。HTML/
 
 Astro では、ファイルの置き場所が役割を表します。最初にフォルダ構造を読めるようになると、「ページを直すのか」「部品を直すのか」「記事を追加するのか」を迷いにくくなります。
 
-!!! info ""
-    ```text
-    ota_hp/
-    ├── public/          # 画像・フォント・favicon など「そのまま使うファイル」
-    ├── src/
-    │   ├── components/  # ヘッダー・フッターなど、繰り返し使うパーツ
-    │   ├── layouts/     # ページ全体の枠組み（共通レイアウト）
-    │   ├── pages/       # 各ページのファイル（URLと対応する）
-    │   └── content/     # お知らせ・ブログ記事などのコンテンツ
-    ├── astro.config.mjs # Astroの設定ファイル（基本的に触らない）
-    └── package.json     # 使用しているパッケージの一覧（基本的に触らない）
-    ```
+```text
+ota_hp/
+├── public/          # 画像・フォント・favicon など「そのまま使うファイル」
+├── src/
+│   ├── components/  # ヘッダー・フッターなど、繰り返し使うパーツ
+│   ├── layouts/     # ページ全体の枠組み（共通レイアウト）
+│   ├── pages/       # 各ページのファイル（URLと対応する）
+│   └── content/     # お知らせ・ブログ記事などのコンテンツ
+├── astro.config.mjs # Astroの設定ファイル（基本的に触らない）
+└── package.json     # 使用しているパッケージの一覧（基本的に触らない）
+```
 `src/pages` は URL と対応するページ、`src/components` は再利用部品、`src/layouts` はページ全体の枠、`src/content` は記事データを置く場所です。
 
 ### どこを主に触るか
@@ -220,11 +219,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 > **slug とは：** URL に使われる記事の識別子です。`/news/2024-spring-camp` の `2024-spring-camp` の部分がスラッグです。スペースや日本語を含まず、ハイフン区切りの短い文字列で表現します。
 
-!!! info ""
-    src/pages/news/[slug].astro
-    → /news/2024-spring-camp
-    → /news/2024-open-campus
-    など、すべての記事に対応
+src/pages/news/[slug].astro
+→ /news/2024-spring-camp
+→ /news/2024-open-campus
+など、すべての記事に対応
 `[slug].astro` は、1 つのファイルで複数の URL を担当するための書き方です。記事が増えても、記事ごとにページファイルを手で作る必要がありません。
 
 ### getStaticPaths でページを生成する
@@ -275,13 +273,12 @@ const { Content } = await item.render();
 > `#` で見出し、`**` で太字など、シンプルな記号で文章を装飾できる書き方のルールです。  
 > このテックガイドサイトも Markdown で書かれています。
 
-!!! info ""
-    ```text
-    src/content/
-    └── news/
-        ├── 2024-01-15.md   ← お知らせ記事
-        └── 2024-02-01.md   ← お知らせ記事
-    ```
+```text
+src/content/
+└── news/
+    ├── 2024-01-15.md   ← お知らせ記事
+    └── 2024-02-01.md   ← お知らせ記事
+```
 `src/content/news` に Markdown ファイルを追加すると、お知らせ記事として扱えます。ファイルごとに 1 件の記事を表す、と考えると管理しやすくなります。
 
 各ファイルの先頭に、タイトルや日付などの情報を書きます。

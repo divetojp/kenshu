@@ -65,19 +65,24 @@ export default {
 
 ### スペーシング（padding・margin）
 
-!!! info ""
-    ```text
-    p-{n}   → padding: n × 0.25rem（すべての辺）
-    px-{n}  → padding 左右
-    py-{n}  → padding 上下
-    pt-{n}  → padding 上のみ
-    m-{n}   → margin（同様）
+| クラス | 意味 |
+|--------|------|
+| `p-{n}` | padding: n × 0.25rem（すべての辺）|
+| `px-{n}` | padding 左右 |
+| `py-{n}` | padding 上下 |
+| `pt-{n}` | padding 上のみ |
+| `m-{n}` | margin（同様）|
 
-    p-0  = 0px       p-1  = 4px
-    p-2  = 8px       p-4  = 16px
-    p-6  = 24px      p-8  = 32px
-    p-12 = 48px      p-16 = 64px
-    ```
+| クラス | px 換算 |
+|--------|--------|
+| `p-0` | 0px |
+| `p-1` | 4px |
+| `p-2` | 8px |
+| `p-4` | 16px |
+| `p-6` | 24px |
+| `p-8` | 32px |
+| `p-12` | 48px |
+| `p-16` | 64px |
 ```tsx
 <div className="p-4 mx-auto mt-8">
   <p className="px-6 py-3">テキスト</p>
@@ -86,49 +91,53 @@ export default {
 
 ### 幅・高さ
 
-!!! info ""
-    ```text
-    w-{n}      → width: n × 0.25rem
-    w-full     → width: 100%
-    w-screen   → width: 100vw
-    w-1/2      → width: 50%
-    w-1/3      → width: 33.333%
-    max-w-xl   → max-width: 36rem（sm/md/lg/xl/2xl など）
-    h-{n}      → height（同様）
-    ```
+| クラス | 意味 |
+|--------|------|
+| `w-{n}` | width: n × 0.25rem |
+| `w-full` | width: 100% |
+| `w-screen` | width: 100vw |
+| `w-1/2` | width: 50% |
+| `w-1/3` | width: 33.333% |
+| `max-w-xl` | max-width: 36rem（sm/md/lg/xl/2xl など）|
+| `h-{n}` | height（同様）|
 ### テキスト
 
-```
-text-xs   → 12px    text-sm   → 14px
-text-base → 16px    text-lg   → 18px
-text-xl   → 20px    text-2xl  → 24px
-text-3xl  → 30px    text-4xl  → 36px
+| クラス | サイズ |
+|--------|--------|
+| `text-xs` | 12px |
+| `text-sm` | 14px |
+| `text-base` | 16px |
+| `text-lg` | 18px |
+| `text-xl` | 20px |
+| `text-2xl` | 24px |
+| `text-3xl` | 30px |
+| `text-4xl` | 36px |
 
-font-normal   → font-weight: 400
-font-medium   → 500
-font-semibold → 600
-font-bold     → 700
+| クラス | font-weight |
+|--------|------------|
+| `font-normal` | 400 |
+| `font-medium` | 500 |
+| `font-semibold` | 600 |
+| `font-bold` | 700 |
 
-text-left / text-center / text-right
-```
+テキスト揃え：`text-left` / `text-center` / `text-right`
 
 ### 色
 
-!!! info ""
-    ```text
-    text-{color}-{shade}        → テキスト色
-    bg-{color}-{shade}          → 背景色
-    border-{color}-{shade}      → ボーダー色
+| クラス形式 | 意味 |
+|-----------|------|
+| `text-{color}-{shade}` | テキスト色 |
+| `bg-{color}-{shade}` | 背景色 |
+| `border-{color}-{shade}` | ボーダー色 |
 
-    shade: 50 100 200 300 400 500 600 700 800 900 950
-    color: slate gray red orange yellow green blue indigo violet pink
+shade は `50 100 200 300 400 500 600 700 800 900 950`、color は `slate gray red orange yellow green blue indigo violet pink` など。
 
-    例:
-      text-blue-600   → 中程度の青
-      bg-gray-100     → 薄いグレー背景
-      text-white      → 白
-      bg-black        → 黒
-    ```
+| 例 | 意味 |
+|----|------|
+| `text-blue-600` | 中程度の青（テキスト）|
+| `bg-gray-100` | 薄いグレー背景 |
+| `text-white` | 白文字 |
+| `bg-black` | 黒背景 |
 ---
 
 ## Flexbox と Grid

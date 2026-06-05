@@ -23,25 +23,9 @@ HTTP は「クライアントが要求してサーバーが返す」一方向の
 
 ## 3 つのリアルタイム手法
 
-!!! info ""
-    ```text
-    ① ポーリング（Polling）
-      クライアント: 「新しいメッセージある？」(1秒ごと)
-      サーバー:     「ありません」
-      クライアント: 「新しいメッセージある？」
-      サーバー:     「あります！」
-      → シンプルだが無駄なリクエストが多い
-
-    ② SSE（Server-Sent Events）
-      クライアント: 「接続しました。送ってください」
-      サーバー:     「（更新があったとき）→ データ送信」
-      → サーバー → クライアントの一方向のみ
-
-    ③ WebSocket
-      クライアント: 「接続しました（HTTP → WebSocket にアップグレード）」
-      サーバー / クライアント: いつでも双方向にメッセージを送れる
-      → チャット・ゲームなど双方向が必要な場面に最適
-    ```
+1. **ポーリング（Polling）**：クライアントが 1 秒ごとに「新しいメッセージある？」と問い合わせ、サーバーが「ありません」「あります！」と返す。シンプルだが無駄なリクエストが多い。
+2. **SSE（Server-Sent Events）**：クライアントが接続を確立し、サーバーが更新があったときだけデータを送信する。サーバー → クライアントの一方向のみ。
+3. **WebSocket**：クライアントが接続（HTTP → WebSocket にアップグレード）し、サーバーとクライアントがいつでも双方向にメッセージを送れる。チャット・ゲームなど双方向が必要な場面に最適。
 | 手法 | 方向 | 接続 | 向いているケース |
 |------|------|------|----------------|
 | ポーリング | ← | 毎回 HTTP | シンプルな更新チェック |
@@ -54,21 +38,12 @@ HTTP は「クライアントが要求してサーバーが返す」一方向の
 
 WebSocket は最初だけ HTTP でネゴシエーションし、その後 TCP 接続をそのまま WebSocket に切り替えます。
 
-!!! info ""
-    **クライアント → サーバー（HTTP リクエスト）**
-
-    GET /ws HTTP/1.1
-    Upgrade: websocket
-    Connection: Upgrade
-    Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
-
-    **サーバー → クライアント（101 Switching Protocols）**
-
-    HTTP/1.1 101 Switching Protocols
-    Upgrade: websocket
-    Connection: Upgrade
-
-    以降: TCP 接続をそのまま使って双方向通信
+| クライアント → サーバー（HTTP リクエスト） | サーバー → クライアント（101 Switching Protocols） |
+|---|---|
+| GET /ws HTTP/1.1 | HTTP/1.1 101 Switching Protocols |
+| Upgrade: websocket | Upgrade: websocket |
+| Connection: Upgrade | Connection: Upgrade |
+| Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ== | 以降: TCP 接続をそのまま使って双方向通信 |
 ---
 
 ## FastAPI で WebSocket サーバー

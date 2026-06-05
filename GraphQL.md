@@ -23,33 +23,25 @@ REST の問題を知っていると GraphQL の価値がわかります。「`/u
 
 ## REST vs GraphQL
 
-!!! info ""
-    ```text
-    REST の問題例:
+**REST の問題例：**
 
-      画面に「ユーザー名」「プロフィール画像」だけ表示したい
-      → GET /users/1 → { id, name, email, bio, avatar, created_at, ... } (20フィールド)
-         要らないデータも全部来る（Over-fetching）
+1. **Over-fetching**：画面に「ユーザー名」「プロフィール画像」だけ表示したい場合でも、`GET /users/1` で `{ id, name, email, bio, avatar, created_at, ... }` の 20 フィールドが全部返ってくる。
+2. **Under-fetching**：画面に「ユーザー情報 + その投稿一覧」を表示したい場合、`GET /users/1`（1 回目）と `GET /users/1/posts`（2 回目）の 2 回リクエストが必要になる。
 
-      画面に「ユーザー情報 + その投稿一覧」を表示したい
-      → GET /users/1  (1回目)
-      → GET /users/1/posts  (2回目)
-         2回リクエストが必要（Under-fetching）
+**GraphQL の解決：** 以下のように欲しいフィールドだけを宣言すると、1 回のリクエストで必要なデータだけが返ってくる。
 
-    GraphQL の解決:
-
-      query {
-        user(id: 1) {
-          name        ← 欲しいものだけ指定
-          avatar
-          posts {
-            title
-            publishedAt
-          }
-        }
-      }
-      → 1回のリクエストで欲しいデータだけ返ってくる
-    ```
+```graphql
+query {
+  user(id: 1) {
+    name
+    avatar
+    posts {
+      title
+      publishedAt
+    }
+  }
+}
+```
 | | REST | GraphQL |
 |--|------|---------|
 | エンドポイント | リソースごとに `/users`, `/posts` | `/graphql` の 1 つ |
@@ -253,12 +245,7 @@ subscription {
 
 GraphQL でよく起きるパフォーマンス問題です。
 
-!!! info ""
-    ユーザー一覧 (10件) を取得すると…
-    → ユーザー 1 の投稿を取得
-    → ユーザー 2 の投稿を取得
-    … (10回のDB クエリ)
-    = 合計 11 回のクエリ（N+1 問題）
+ユーザー一覧（10 件）を取得すると、ユーザー 1 の投稿を取得、ユーザー 2 の投稿を取得……と 10 回の DB クエリが走り、合計 11 回のクエリになります（N+1 問題）。
 ```python
 from strawberry.dataloader import DataLoader
 

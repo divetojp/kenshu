@@ -49,61 +49,47 @@ flowchart TD
 
 NAT（ルーターによる IP アドレス変換）により、ブラウザの「本当の IP アドレス」が互いにわかりません。これを解決するのが ICE フレームワークです。
 
-!!! info ""
-    **STUN（Session Traversal Utilities for NAT）**
-
-    「自分のパブリック IP アドレスは何？」を教えるサーバー
-    → 多くの場合これだけで P2P 接続できる
-    → Google の STUN サーバー: stun.l.google.com:19302
-
-    **TURN（Traversal Using Relays around NAT）**
-
-    厳しい NAT（対称型 NAT）では P2P が不可能なため、
-    TURN サーバーがデータを中継する（フォールバック）
-    → 帯域コストがかかるが、確実に通信できる
-
-    **ICE（Interactive Connectivity Establishment）**
-
-    STUN・TURN・ローカルアドレスをすべて試して
-    最適な経路（Candidate）を選ぶフレームワーク
+| プロトコル | 役割 |
+|-----------|------|
+| **STUN**（Session Traversal Utilities for NAT）| 「自分のパブリック IP アドレスは何？」を教えるサーバー。多くの場合これだけで P2P 接続できる。Google の STUN サーバー: `stun.l.google.com:19302` |
+| **TURN**（Traversal Using Relays around NAT）| 厳しい NAT（対称型 NAT）では P2P が不可能なため、TURN サーバーがデータを中継する（フォールバック）。帯域コストがかかるが確実に通信できる。|
+| **ICE**（Interactive Connectivity Establishment）| STUN・TURN・ローカルアドレスをすべて試して最適な経路（Candidate）を選ぶフレームワーク |
 ### SDP（Session Description Protocol）
 
 接続の「名刺交換」です。コーデック・解像度・通信経路などの情報を記述します。
 
-!!! info ""
-    ```text
-    SDP の中身（抜粋）:
-      v=0
-      o=- 1234567890 2 IN IP4 127.0.0.1
-      m=audio 9 UDP/TLS/RTP/SAVPF 111   ← 音声トラック
-      a=rtpmap:111 opus/48000/2          ← Opus コーデック
-      m=video 9 UDP/TLS/RTP/SAVPF 96    ← 映像トラック
-      a=rtpmap:96 VP8/90000             ← VP8 コーデック
-    ```
+```text
+SDP の中身（抜粋）:
+  v=0
+  o=- 1234567890 2 IN IP4 127.0.0.1
+  m=audio 9 UDP/TLS/RTP/SAVPF 111   ← 音声トラック
+  a=rtpmap:111 opus/48000/2          ← Opus コーデック
+  m=video 9 UDP/TLS/RTP/SAVPF 96    ← 映像トラック
+  a=rtpmap:96 VP8/90000             ← VP8 コーデック
+```
 ---
 
 ## 接続確立の手順
 
-!!! info ""
-    ```text
-    ブラウザ A（発信側）              ブラウザ B（受信側）
-    ─────────────────────────────────────────────────────
-    ① createOffer()
-       → SDP オファーを生成
-    ② setLocalDescription(offer)
-
-    ③ オファーをシグナリングサーバー経由で B に送信
-                                    ④ setRemoteDescription(offer)
-                                    ⑤ createAnswer()
-                                       → SDP アンサーを生成
-                                    ⑥ setLocalDescription(answer)
-                                    ⑦ アンサーをシグナリングサーバー経由で A に送信
-    ⑧ setRemoteDescription(answer)
-
-    ⑨ ICE Candidate を収集して交換（双方向、非同期）
-
-    ⑩ P2P 接続確立 → 音声・映像・データの送受信開始
-    ```
+```mermaid
+sequenceDiagram
+    participant A as ブラウザ A（発信側）
+    participant S as シグナリングサーバー
+    participant B as ブラウザ B（受信側）
+    A->>A: ① createOffer() → SDP オファー生成
+    A->>A: ② setLocalDescription(offer)
+    A->>S: ③ オファーを送信
+    S->>B: ③ オファーを転送
+    B->>B: ④ setRemoteDescription(offer)
+    B->>B: ⑤ createAnswer() → SDP アンサー生成
+    B->>B: ⑥ setLocalDescription(answer)
+    B->>S: ⑦ アンサーを送信
+    S->>A: ⑦ アンサーを転送
+    A->>A: ⑧ setRemoteDescription(answer)
+    A<<->>S: ⑨ ICE Candidate 交換（双方向・非同期）
+    S<<->>B: ⑨ ICE Candidate 交換（双方向・非同期）
+    A<<->>B: ⑩ P2P 接続確立 → 音声・映像・データ送受信開始
+```
 ---
 
 ## 実装例：シンプルなビデオ通話
@@ -278,12 +264,20 @@ pc.oniceconnectionstatechange = () => {
 | **P2P ファイル転送** | DataChannel | ブラウザ間直接転送 |
 | **画面共有** | getDisplayMedia + replaceTrack | |
 
-!!! info ""
-    ```text
-    P2P（1対1）:     A ←→ B
-    SFU（グループ）: A → [SFU] ← B ← [SFU] → C
-                     C → [SFU]
-    ```
+```mermaid
+flowchart LR
+    subgraph "P2P（1対1）"
+        PA[ブラウザ A] <--> PB[ブラウザ B]
+    end
+    subgraph "SFU（グループ）"
+        SA[ブラウザ A] --> SFU[SFU]
+        SB[ブラウザ B] --> SFU
+        SC[ブラウザ C] --> SFU
+        SFU --> SA
+        SFU --> SB
+        SFU --> SC
+    end
+```
 SFU は各参加者のストリームをそのまま転送（N 人なら N-1 本の接続）。MCU は全ストリームを合成して 1 本にする（サーバー負荷大・品質劣化あり）。
 
 ---

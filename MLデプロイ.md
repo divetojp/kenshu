@@ -165,16 +165,15 @@ def health_check():
 
 Docker 化する前に、プロジェクトのファイル配置を決めます。アプリコード、モデルファイル、依存関係、Dockerfile の位置がそろっていると、ビルド時に何をコピーしているか分かりやすくなります。
 
-!!! info ""
-    ```text
-    ml-api/
-    ├── app/
-    │   └── main.py
-    ├── model/
-    │   └── pipeline.pkl    ← 訓練済みモデル
-    ├── Dockerfile
-    └── requirements.txt
-    ```
+```
+ml-api/
+├── app/
+│   └── main.py
+├── model/
+│   └── pipeline.pkl    ← 訓練済みモデル
+├── Dockerfile
+└── requirements.txt
+```
 `pipeline.pkl` は学習済みモデルです。API コンテナの中にこのファイルを含める場合、モデルを更新するたびにイメージを作り直す必要があります。外部ストレージから起動時に取得する設計もありますが、入門ではまず同梱する形で理解します。
 
 ```txt

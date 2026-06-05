@@ -37,18 +37,17 @@ npm run dev
 
 `app/` ディレクトリのファイル構造が URL に直接対応します。
 
-!!! info ""
-    ```text
-    app/
-    ├── page.tsx          → /
-    ├── about/
-    │   └── page.tsx      → /about
-    ├── blog/
-    │   ├── page.tsx      → /blog
-    │   └── [slug]/
-    │       └── page.tsx  → /blog/any-article-name  ← 動的ルート
-    └── layout.tsx        → 全ページ共通のレイアウト
-    ```
+```text
+app/
+├── page.tsx          → /
+├── about/
+│   └── page.tsx      → /about
+├── blog/
+│   ├── page.tsx      → /blog
+│   └── [slug]/
+│       └── page.tsx  → /blog/any-article-name  ← 動的ルート
+└── layout.tsx        → 全ページ共通のレイアウト
+```
 ```tsx
 // app/page.tsx → http://localhost:3000/
 export default function HomePage() {
@@ -210,20 +209,12 @@ export default function RootLayout({
 
 ## React 単体 vs Next.js
 
-!!! info ""
-    **React だけ**
-
-    - ルーティング → react-router-dom を別途インストール
-    - データ取得 → useEffect + fetch（常に CSR）
-    - SEO → 弱い（JS が実行されないと内容が見えない）
-    - API → 別サーバーが必要（FastAPI 等）
-
-    **Next.js**
-
-    - ルーティング → ファイル構造で自動
-    - データ取得 → SSG/SSR/ISR を選べる
-    - SEO → サーバーで HTML を作るので検索エンジンに届く
-    - API → 同じリポジトリで作れる
+| React だけ | Next.js |
+|---|---|
+| ルーティング → react-router-dom を別途インストール | ルーティング → ファイル構造で自動 |
+| データ取得 → useEffect + fetch（常に CSR） | データ取得 → SSG/SSR/ISR を選べる |
+| SEO → 弱い（JS が実行されないと内容が見えない） | SEO → サーバーで HTML を作るので検索エンジンに届く |
+| API → 別サーバーが必要（FastAPI 等） | API → 同じリポジトリで作れる |
 ---
 
 ## 確認問題

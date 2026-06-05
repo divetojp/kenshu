@@ -284,20 +284,13 @@ onMounted(() => execute())
 
 ## ライフサイクルフック
 
-!!! info ""
-    ```text
-    作成 → マウント → 更新 → アンマウント
+ライフサイクルは「作成 → マウント → 更新 → アンマウント」の順に進みます。
 
-    setup()            ← データの初期化
-      ↓
-    onBeforeMount()    ← DOM 生成前
-      ↓
-    onMounted()        ← DOM 生成後（API 呼び出し・イベントリスナー登録）
-      ↓
-    onUpdated()        ← 再描画後
-      ↓
-    onUnmounted()      ← 破棄直前（クリーンアップ）
-    ```
+1. `setup()` — データの初期化
+2. `onBeforeMount()` — DOM 生成前
+3. `onMounted()` — DOM 生成後（API 呼び出し・イベントリスナー登録）
+4. `onUpdated()` — 再描画後
+5. `onUnmounted()` — 破棄直前（クリーンアップ）
 ```vue
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
