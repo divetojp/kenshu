@@ -25,7 +25,6 @@
 ## なぜ IaC が必要か
 
 !!! info ""
-    ```
     手動管理の問題:
       開発者A: コンソールでサーバーを作成
       開発者B: 「このサーバーどうやって作ったの？」→ 不明
@@ -37,7 +36,6 @@
       terraform plan でデプロイ前に変更内容を確認
       同じコードから開発・ステージング・本番を再現
       PR レビューでインフラ変更をコードレビューできる
-    ```
 
 ---
 
@@ -55,14 +53,12 @@ terraform version
 Terraform のファイル構成：
 
 !!! info ""
-    ```
     infra/
     ├── main.tf          # メインのリソース定義
     ├── variables.tf     # 変数定義
     ├── outputs.tf       # 出力値
     ├── providers.tf     # クラウドプロバイダー設定
     └── terraform.tfvars # 変数の実際の値（.gitignore に追加）
-    ```
 
 ---
 
@@ -218,12 +214,10 @@ Plan: 2 to add, 0 to change, 0 to destroy.
 Terraform は作成したリソースの状態を `terraform.tfstate` に記録します。
 
 !!! info ""
-    ```
     terraform.tfstate: どのリソースが作成されているかの「現実の状態」
     main.tf:           「あるべき状態」の定義
     
     terraform apply 時: あるべき状態 ↔ 現実の状態 の差分を計算して適用
-    ```
 
 **チームで使うときはリモートバックエンドが必須**（ローカルの .tfstate をコミットしてはいけない）。
 

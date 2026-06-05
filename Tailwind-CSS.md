@@ -66,7 +66,6 @@ export default {
 ### スペーシング（padding・margin）
 
 !!! info ""
-    ```
     p-{n}   → padding: n × 0.25rem（すべての辺）
     px-{n}  → padding 左右
     py-{n}  → padding 上下
@@ -77,7 +76,6 @@ export default {
     p-2  = 8px       p-4  = 16px
     p-6  = 24px      p-8  = 32px
     p-12 = 48px      p-16 = 64px
-    ```
 
 ```tsx
 <div className="p-4 mx-auto mt-8">
@@ -88,7 +86,6 @@ export default {
 ### 幅・高さ
 
 !!! info ""
-    ```
     w-{n}      → width: n × 0.25rem
     w-full     → width: 100%
     w-screen   → width: 100vw
@@ -96,7 +93,6 @@ export default {
     w-1/3      → width: 33.333%
     max-w-xl   → max-width: 36rem（sm/md/lg/xl/2xl など）
     h-{n}      → height（同様）
-    ```
 
 ### テキスト
 
@@ -117,7 +113,6 @@ text-left / text-center / text-right
 ### 色
 
 !!! info ""
-    ```
     text-{color}-{shade}        → テキスト色
     bg-{color}-{shade}          → 背景色
     border-{color}-{shade}      → ボーダー色
@@ -130,7 +125,6 @@ text-left / text-center / text-right
       bg-gray-100     → 薄いグレー背景
       text-white      → 白
       bg-black        → 黒
-    ```
 
 ---
 

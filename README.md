@@ -22,7 +22,6 @@
 ## リポジトリ構成
 
 !!! info ""
-    ```
     tech-guide/
     ├── *.md              # コンテンツ（ルートに配置、CI でビルド時に docs/ にコピー）
     ├── Home.md           # トップページ（index.md にマッピング）
@@ -32,7 +31,6 @@
     │   ├── javascripts/  # KaTeX（数式描画）
     │   └── stylesheets/  # カスタム CSS
     └── .github/workflows/deploy.yml  # GitHub Pages への自動デプロイ
-    ```
 
 ## コードサンプル
 

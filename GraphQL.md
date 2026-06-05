@@ -24,7 +24,6 @@ REST の問題を知っていると GraphQL の価値がわかります。「`/u
 ## REST vs GraphQL
 
 !!! info ""
-    ```
     REST の問題例:
     
       画面に「ユーザー名」「プロフィール画像」だけ表示したい
@@ -49,7 +48,6 @@ REST の問題を知っていると GraphQL の価値がわかります。「`/u
         }
       }
       → 1回のリクエストで欲しいデータだけ返ってくる
-    ```
 
 | | REST | GraphQL |
 |--|------|---------|
@@ -255,13 +253,11 @@ subscription {
 GraphQL でよく起きるパフォーマンス問題です。
 
 !!! info ""
-    ```
     ユーザー一覧 (10件) を取得すると…
       → ユーザー 1 の投稿を取得
       → ユーザー 2 の投稿を取得
       … (10回のDB クエリ)
     = 合計 11 回のクエリ（N+1 問題）
-    ```
 
 ```python
 from strawberry.dataloader import DataLoader

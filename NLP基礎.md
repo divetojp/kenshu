@@ -201,7 +201,6 @@ for text in texts:
 ```
 
 !!! info ""
-    ```
     文: ソフトバンクグループの孫正義社長が東京都渋谷区で記者会見を開いた。
       [ORG     ] ソフトバンクグループ
       [PERSON  ] 孫正義
@@ -210,7 +209,6 @@ for text in texts:
     文: 2024年3月に滋賀大学で開催されたシンポジウムには200名が参加した。
       [DATE    ] 2024年3月
       [ORG     ] 滋賀大学
-    ```
 
 主なエンティティラベル：`PERSON`（人名）、`ORG`（組織）、`GPE`（地名・国）、`DATE`（日付）、`MONEY`（金額）、`PRODUCT`（製品）
 
@@ -283,7 +281,6 @@ Transformer はこれを **Self-Attention（自己注意機構）** で解決し
 ### Self-Attention をライブラリのたとえで理解する
 
 !!! info ""
-    ```
     文章：「彼女は猫を飼っている。彼女はとても大切にしている。」
     
     問い：「大切にしている」の主語は誰か？
@@ -299,7 +296,6 @@ Transformer はこれを **Self-Attention（自己注意機構）** で解決し
       → 離れた位置にある「彼女」との関係を直接学習できる
     
     注目度 = Attention 重み（0〜1, 合計 1）
-    ```
 
 **Q/K/V の役割（図書館のたとえ）：**
 
@@ -308,7 +304,6 @@ Self-Attention の式が $\text{Attention}(Q,K,V) = \text{softmax}\!\left(\frac{
 やりたいことは「あるトークンが他のどのトークンと関係が深いかを計算し、関係の深さに応じて情報を集める」ことです。
 
 !!! info ""
-    ```
     図書館で「機械学習の教科書を探したい」とき：
     
       Query (Q) = あなたの「検索クエリ」（「機械学習 教科書」）
@@ -323,7 +318,6 @@ Self-Attention の式が $\text{Attention}(Q,K,V) = \text{softmax}\!\left(\frac{
          → sqrt(d_k) で割るのは、次元が大きいと内積が大きくなりすぎて
             Softmax が「勝者総取り」になるのを防ぐため
       3. 注目度に応じて Value を加重平均 → 「関連性の高い情報の合成」
-    ```
 
 $$\text{Attention}(Q,K,V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$$
 

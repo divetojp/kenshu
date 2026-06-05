@@ -285,7 +285,6 @@ onMounted(() => execute())
 ## ライフサイクルフック
 
 !!! info ""
-    ```
     作成 → マウント → 更新 → アンマウント
     
     setup()            ← データの初期化
@@ -297,7 +296,6 @@ onMounted(() => execute())
     onUpdated()        ← 再描画後
       ↓
     onUnmounted()      ← 破棄直前（クリーンアップ）
-    ```
 
 ```vue
 <script setup lang="ts">
