@@ -9,10 +9,10 @@
         <meta name="description" content="大学生のためのソフトウェアエンジニアリング・機械学習テックガイド">
       
       
-        <meta name="author" content="OHMITechAcademy">
+        <meta name="author" content="DiveTo">
       
       
-        <link rel="canonical" href="https://ohmitechacademy.github.io/tech-guide/Cloudflare/">
+        <link rel="canonical" href="https://divetojp.github.io/kenshu/Cloudflare/">
       
       
         <link rel="prev" href="../Terraform/">
@@ -7588,7 +7588,7 @@
 <p>次の図は、手元だけで見える開発環境と、インターネット上で誰でも見られる公開環境の違いを表しています。</p>
 <pre class="mermaid"><code>flowchart LR
     Local["開発中（あなたのPC）\nlocalhost:4321\n（自分だけが見える）"]
-    Public["デプロイ後（インターネット上）\nohmitechacademy.com\n（誰でもアクセスできる）"]
+    Public["デプロイ後（インターネット上）\ndiveto.jp\n（誰でもアクセスできる）"]
     Local -- "デプロイ" --&gt; Public</code></pre>
 <p><code>localhost</code> は自分の PC の中だけの住所です。デプロイ後は、Cloudflare が管理するサーバーに成果物が配置され、ドメインを通じて外部からアクセスできるようになります。</p>
 <h3 id="_2">デプロイで起きていること<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -7598,7 +7598,7 @@
 <tr>
 <th>工程</th>
 <th>意味</th>
-<th>ota_hp での担当</th>
+<th>hp での担当</th>
 </tr>
 </thead>
 <tbody>
@@ -7671,7 +7671,7 @@ Cloudflare Pages はこの作業を自動でやってくれます。</p>
 <ol>
 <li><a href="https://dash.cloudflare.com">Cloudflare ダッシュボード</a> にログイン</li>
 <li>左メニューの <strong>Workers &amp; Pages</strong> をクリック</li>
-<li>プロジェクト名（<code>ota_hp</code> など）をクリック</li>
+<li>プロジェクト名（<code>hp</code> など）をクリック</li>
 <li><strong>Deployments</strong> タブを開く</li>
 </ol>
 <p>ここに最新のデプロイ履歴が表示されます。</p>
@@ -7702,12 +7702,12 @@ Cloudflare Pages はこの作業を自動でやってくれます。</p>
 <p><strong>ドメイン</strong> とは、サイトの住所にあたる文字列のことです。</p>
 <p>例：<code>https://example.com</code> の <code>example.com</code> の部分がドメインです。</p>
 <p>Cloudflare Pages でデプロイすると、最初は <code>xxx.pages.dev</code> という URL でアクセスできます。<br />
-独自のドメイン（<code>ohmitechacademy.com</code> など）を使いたい場合は、カスタムドメインの設定が必要です。</p>
+独自のドメイン（<code>diveto.jp</code> など）を使いたい場合は、カスタムドメインの設定が必要です。</p>
 <h3 id="_9">カスタムドメインの設定手順<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Cloudflare ダッシュボード → Pages プロジェクト → <strong>Custom domains</strong> タブ</li>
 <li><strong>「Set up a custom domain」</strong> をクリック</li>
-<li>使用するドメインを入力（例：<code>ohmitechacademy.com</code>）</li>
+<li>使用するドメインを入力（例：<code>diveto.jp</code>）</li>
 <li>指示に従って DNS の設定を行う</li>
 </ol>
 <blockquote>

@@ -9,10 +9,10 @@
         <meta name="description" content="大学生のためのソフトウェアエンジニアリング・機械学習テックガイド">
       
       
-        <meta name="author" content="OHMITechAcademy">
+        <meta name="author" content="DiveTo">
       
       
-        <link rel="canonical" href="https://ohmitechacademy.github.io/tech-guide/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%9F%BA%E7%A4%8E/">
+        <link rel="canonical" href="https://divetojp.github.io/kenshu/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%9F%BA%E7%A4%8E/">
       
       
         <link rel="prev" href="../OS%E8%A9%B3%E8%A7%A3/">
@@ -6229,10 +6229,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ota_hp" class="md-nav__link">
+  <a href="#hp" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        ota_hp に関係するネットワークの流れ
+        hp に関係するネットワークの流れ
       </span>
     </span>
   </a>
@@ -7691,10 +7691,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ota_hp" class="md-nav__link">
+  <a href="#hp" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        ota_hp に関係するネットワークの流れ
+        hp に関係するネットワークの流れ
       </span>
     </span>
   </a>
@@ -7813,10 +7813,10 @@
 <hr />
 <h2 id="dns">ドメインと DNS<a class="headerlink" href="#dns" title="Permanent link">&para;</a></h2>
 <h3 id="_7">ドメインとは<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p><code>ohmitechacademy.com</code> のような、人間が読めるサイトの住所です。コンピューターは IP アドレスで通信しますが、数字の羅列は覚えにくいため、ドメインが使われます。</p>
+<p><code>diveto.jp</code> のような、人間が読めるサイトの住所です。コンピューターは IP アドレスで通信しますが、数字の羅列は覚えにくいため、ドメインが使われます。</p>
 <h3 id="dnsdomain-name-system">DNS（Domain Name System）とは<a class="headerlink" href="#dnsdomain-name-system" title="Permanent link">&para;</a></h3>
 <p>ドメインを IP アドレスに変換する仕組みです。インターネット上の「電話帳」と例えられます。</p>
-<p>ブラウザ → DNS に問い合わせ「ohmitechacademy.com の IP は？」
+<p>ブラウザ → DNS に問い合わせ「diveto.jp の IP は？」
 ↓
 DNS が回答「203.0.113.45 です」
 ↓
@@ -8000,8 +8000,8 @@ Cloudflare は世界最大級の CDN サービスです。</p>
 </blockquote>
 <p>キャッシュは高速化に有効ですが、古いファイルが残る原因にもなります。開発中にCSSを直したのに画面が変わらない場合、コードではなくブラウザやCDNのキャッシュを見ている可能性があります。</p>
 <hr />
-<h2 id="ota_hp">ota_hp に関係するネットワークの流れ<a class="headerlink" href="#ota_hp" title="Permanent link">&para;</a></h2>
-<p>あなたが ota_hp を更新するとき</p>
+<h2 id="hp">hp に関係するネットワークの流れ<a class="headerlink" href="#hp" title="Permanent link">&para;</a></h2>
+<p>あなたが hp を更新するとき</p>
 <p>① git push → GitHub にコードが届きます
 ↓
 ② Cloudflare Pages が変更を検知します
@@ -8010,7 +8010,7 @@ Cloudflare は世界最大級の CDN サービスです。</p>
 ↓
 ④ Cloudflare の CDN サーバー（世界各地）に配信します
 ↓
-⑤ ユーザーが ohmitechacademy.com にアクセスします
+⑤ ユーザーが diveto.jp にアクセスします
 ↓
 ⑥ DNS が IP アドレスを返します → Cloudflare サーバーに接続します
 ↓

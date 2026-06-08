@@ -9,10 +9,10 @@
         <meta name="description" content="大学生のためのソフトウェアエンジニアリング・機械学習テックガイド">
       
       
-        <meta name="author" content="OHMITechAcademy">
+        <meta name="author" content="DiveTo">
       
       
-        <link rel="canonical" href="https://ohmitechacademy.github.io/tech-guide/CI-CD/">
+        <link rel="canonical" href="https://divetojp.github.io/kenshu/CI-CD/">
       
       
         <link rel="prev" href="../Kubernetes/">
@@ -7641,7 +7641,7 @@
 </ul>
 <hr />
 <h2 id="cicd_3">このプロジェクトの CI/CD<a class="headerlink" href="#cicd_3" title="Permanent link">&para;</a></h2>
-<p><code>ota_hp</code> はすでに CI/CD が動いています。</p>
+<p><code>hp</code> はすでに CI/CD が動いています。</p>
 <p>このプロジェクトでは、GitHub に変更が入り、Cloudflare Pages がそれを検知してビルド・デプロイします。つまり、人が手でサーバーへファイルを置くのではなく、変更履歴を起点に自動化されています。</p>
 <pre class="mermaid"><code>flowchart LR
     Push["git push"] --&gt; GitHub --&gt; Detect["Cloudflare Pages が検知"] --&gt; Build["自動ビルド"] --&gt; Deploy["自動デプロイ"]</code></pre>

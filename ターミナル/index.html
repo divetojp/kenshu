@@ -9,10 +9,10 @@
         <meta name="description" content="大学生のためのソフトウェアエンジニアリング・機械学習テックガイド">
       
       
-        <meta name="author" content="OHMITechAcademy">
+        <meta name="author" content="DiveTo">
       
       
-        <link rel="canonical" href="https://ohmitechacademy.github.io/tech-guide/%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB/">
+        <link rel="canonical" href="https://divetojp.github.io/kenshu/%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB/">
       
       
         <link rel="prev" href="../%E6%96%87%E7%AB%A0%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/">
@@ -7701,9 +7701,9 @@
 <blockquote>
 <p><strong>P</strong> rint <strong>W</strong> orking <strong>D</strong> irectory の略。現在いるフォルダの場所（パス）を表示します。</p>
 </blockquote>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/Users/yamada/Documents/ota_hp
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/Users/yamada/Documents/hp
 </span></code></pre></div>
-<p>この出力は、現在の作業ディレクトリの絶対パスです。<code>ota_hp</code> の中にいるなら、この場所を基準に <code>ls</code> や <code>cd</code> が動きます。</p>
+<p>この出力は、現在の作業ディレクトリの絶対パスです。<code>hp</code> の中にいるなら、この場所を基準に <code>ls</code> や <code>cd</code> が動きます。</p>
 <h3 id="_10">フォルダの中を見る<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>現在地にどんなファイルやフォルダがあるかを確認するときは <code>ls</code> を使います。移動する前、ファイルを開く前、コマンドを実行する前に中身を確認する習慣をつけると安全です。</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ls
@@ -7722,7 +7722,7 @@
 <p><strong>C</strong> hange <strong>D</strong> irectory の略。指定したフォルダに移動します。</p>
 </blockquote>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>Documents<span class="w">          </span><span class="c1"># Documents フォルダに移動</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>ota_hp<span class="w">             </span><span class="c1"># ota_hp フォルダに移動</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>hp<span class="w">             </span><span class="c1"># hp フォルダに移動</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">cd</span><span class="w"> </span>..<span class="w">                 </span><span class="c1"># 一つ上のフォルダに戻る</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">cd</span><span class="w">                    </span><span class="c1"># ホームディレクトリ（/Users/自分の名前）に移動</span>
 </span></code></pre></div>
@@ -7733,8 +7733,8 @@
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">pwd</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ls
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># ota_hp に移動して中を確認する</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">cd</span><span class="w"> </span>~/Documents/ota_hp
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># hp に移動して中を確認する</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">cd</span><span class="w"> </span>~/Documents/hp
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>ls
 </span></code></pre></div>
 <p>この組み合わせを読めれば、ほとんどの開発手順書の最初の部分が理解できます。コマンドを覚えるより先に、「現在地を確認して、移動して、中を見る」という流れを身体で覚えると楽になります。</p>
@@ -7742,13 +7742,13 @@
 <h2 id="_13">パスとは<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p><strong>ファイルやフォルダの住所</strong> のことです。</p>
 <p>パスは、ファイルやフォルダがどこにあるかを表す文字列です。ターミナルでは、クリックで場所を選ぶ代わりに、この住所を文字で指定します。</p>
-<p>/Users/yamada/Documents/ota_hp/src/pages/index.astro
+<p>/Users/yamada/Documents/hp/src/pages/index.astro
 └── ルート
 └── ユーザー名
 └── フォルダ
 └── プロジェクト
 └── ファイル
-この例では、<code>/Users/yamada</code> がユーザーのホーム周辺、<code>Documents/ota_hp</code> がプロジェクト、<code>src/pages/index.astro</code> がプロジェクト内のファイルを表しています。</p>
+この例では、<code>/Users/yamada</code> がユーザーのホーム周辺、<code>Documents/hp</code> がプロジェクト、<code>src/pages/index.astro</code> がプロジェクト内のファイルを表しています。</p>
 <table>
 <thead>
 <tr>

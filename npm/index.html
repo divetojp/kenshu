@@ -9,10 +9,10 @@
         <meta name="description" content="大学生のためのソフトウェアエンジニアリング・機械学習テックガイド">
       
       
-        <meta name="author" content="OHMITechAcademy">
+        <meta name="author" content="DiveTo">
       
       
-        <link rel="canonical" href="https://ohmitechacademy.github.io/tech-guide/npm/">
+        <link rel="canonical" href="https://divetojp.github.io/kenshu/npm/">
       
       
         <link rel="prev" href="../Next.js/">
@@ -7540,7 +7540,7 @@
 <p>プロジェクトのルートフォルダにある <code>package.json</code> は、 <strong>このプロジェクトで使うパッケージの一覧と設定を記録したファイル</strong> です。</p>
 <p>次の例では、<code>scripts</code> に開発・ビルド・プレビュー用のコマンドが定義され、<code>dependencies</code> に Astro が依存パッケージとして書かれています。</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ota_hp&quot;</span><span class="p">,</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hp&quot;</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;dev&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;astro dev&quot;</span><span class="p">,</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;astro build&quot;</span><span class="p">,</span>
@@ -7578,7 +7578,7 @@
 <h2 id="node_modules">node_modules フォルダとは<a class="headerlink" href="#node_modules" title="Permanent link">&para;</a></h2>
 <p><code>npm install</code> を実行すると、<code>node_modules/</code> フォルダが自動的に作られます。これは <strong><code>package.json</code> に書かれたパッケージの実体（コード本体）が入るフォルダ</strong> です。</p>
 <p><code>node_modules</code> は、インストールされたライブラリ本体の置き場所です。自分で編集するフォルダではなく、npm が管理します。</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ota_hp/
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hp/
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── node_modules/    ← npm install で自動生成される（巨大）
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── src/
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── package.json
