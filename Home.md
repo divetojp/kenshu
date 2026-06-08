@@ -6,7 +6,7 @@
 
 ## ゴール別おすすめルート
 
-### ルート A｜ota_hp のサイトを更新・管理したい
+### ルート A｜hp のサイトを更新・管理したい
 
 | ページ | 優先度 |
 |--------|--------|
@@ -357,5 +357,5 @@
 
 ## 関連リポジトリ
 
-- [ota_hp](https://github.com/ohmitechacademy/ota_hp) — コーポレートサイト本体
-- [tech-guide](https://github.com/ohmitechacademy/tech-guide) — このリポジトリ
+- [hp](https://github.com/divetojp/hp) — コーポレートサイト本体
+- [kenshu](https://github.com/divetojp/kenshu) — このリポジトリ

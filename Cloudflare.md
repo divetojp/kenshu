@@ -11,7 +11,7 @@
 ```mermaid
 flowchart LR
     Local["開発中（あなたのPC）\nlocalhost:4321\n（自分だけが見える）"]
-    Public["デプロイ後（インターネット上）\nohmitechacademy.com\n（誰でもアクセスできる）"]
+    Public["デプロイ後（インターネット上）\ndiveto.jp\n（誰でもアクセスできる）"]
     Local -- "デプロイ" --> Public
 ```
 
@@ -21,7 +21,7 @@ flowchart LR
 
 デプロイは大きく3つの工程に分かれます。
 
-| 工程 | 意味 | ota_hp での担当 |
+| 工程 | 意味 | hp での担当 |
 |------|------|----------------|
 | **ビルド** | ソースコード → ブラウザが読めるファイルに変換 | Cloudflare Pages が自動実行 |
 | **転送** | 生成したファイルをサーバーに置く | Cloudflare Pages が自動実行 |
@@ -101,7 +101,7 @@ flowchart TB
 
 1. [Cloudflare ダッシュボード](https://dash.cloudflare.com) にログイン
 2. 左メニューの **Workers & Pages** をクリック
-3. プロジェクト名（`ota_hp` など）をクリック
+3. プロジェクト名（`hp` など）をクリック
 4. **Deployments** タブを開く
 
 ここに最新のデプロイ履歴が表示されます。
@@ -121,13 +121,13 @@ flowchart TB
 例：`https://example.com` の `example.com` の部分がドメインです。
 
 Cloudflare Pages でデプロイすると、最初は `xxx.pages.dev` という URL でアクセスできます。  
-独自のドメイン（`ohmitechacademy.com` など）を使いたい場合は、カスタムドメインの設定が必要です。
+独自のドメイン（`diveto.jp` など）を使いたい場合は、カスタムドメインの設定が必要です。
 
 ### カスタムドメインの設定手順
 
 1. Cloudflare ダッシュボード → Pages プロジェクト → **Custom domains** タブ
 2. **「Set up a custom domain」** をクリック
-3. 使用するドメインを入力（例：`ohmitechacademy.com`）
+3. 使用するドメインを入力（例：`diveto.jp`）
 4. 指示に従って DNS の設定を行う
 
 > ドメインが Cloudflare で管理されている場合、DNS の設定は自動で行われます。

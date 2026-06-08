@@ -281,7 +281,7 @@ git commit -m "変更内容"
 
 テックガイドの `.md` ファイルをローカルで編集して、Markdown を実際に試してみましょう。
 
-1. `git clone https://github.com/ohmitechacademy/tech-guide.git` でリポジトリを取得
+1. `git clone https://github.com/divetojp/kenshu.git` でリポジトリを取得
 2. VS Code で任意の `.md` ファイルを開く
 3. 自由にテキストを追加して **Ctrl+Shift+V**（Mac: ⌘+Shift+V）でプレビュー確認
 4. `git add / commit / push` で変更を反映（GitHub Actions が自動でサイトをビルド・デプロイ）

@@ -22,7 +22,7 @@
 ## リポジトリ構成
 
 ```text
-tech-guide/
+kenshu/
 ├── *.md              # コンテンツ（ルートに配置、CI でビルド時に docs/ にコピー）
 ├── Home.md           # トップページ（index.md にマッピング）
 ├── mkdocs.yml        # MkDocs Material テーマの設定
@@ -38,5 +38,5 @@ tech-guide/
 
 ## 関連リポジトリ
 
-- [ota_hp](https://github.com/ohmitechacademy/ota_hp) — コーポレートサイト本体
-- [tech-guide](https://github.com/ohmitechacademy/tech-guide) — このリポジトリ
+- [hp](https://github.com/divetojp/hp) — コーポレートサイト本体
+- [kenshu](https://github.com/divetojp/kenshu) — このリポジトリ

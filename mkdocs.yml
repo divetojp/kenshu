@@ -1,7 +1,7 @@
 site_name: DiveTo テックガイド
-site_url: https://ohmitechacademy.github.io/tech-guide/
+site_url: https://divetojp.github.io/kenshu/
 site_description: 大学生のためのソフトウェアエンジニアリング・機械学習テックガイド
-site_author: OHMITechAcademy
+site_author: DiveTo
 docs_dir: docs
 site_dir: site
 
