@@ -4,7 +4,7 @@
 
 ## 公開サイト
 
-**[https://divetojp.github.io/tech-guide/](https://divetojp.github.io/tech-guide/)**
+**[https://divetojp.github.io/kenshu/](https://divetojp.github.io/kenshu/)**
 
 ## 扱うテーマ
 
