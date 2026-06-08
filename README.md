@@ -4,7 +4,7 @@
 
 ## 公開サイト
 
-**[https://ohmitechacademy.github.io/tech-guide/](https://ohmitechacademy.github.io/tech-guide/)**
+**[https://divetojp.github.io/tech-guide/](https://divetojp.github.io/tech-guide/)**
 
 ## 扱うテーマ
 
